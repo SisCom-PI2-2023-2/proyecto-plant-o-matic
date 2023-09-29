@@ -14,6 +14,7 @@ public:
     // Cambiar la temperatura recomendada
     void setRecommendedTemperature(float newTemperature) {
         recommendedTemperature = newTemperature;
+        std::cout << "Recommended temperature changed to: " << recommendedTemperature << std::endl;
     }
 
     // Cambiar la temperatura de una determinada zona
