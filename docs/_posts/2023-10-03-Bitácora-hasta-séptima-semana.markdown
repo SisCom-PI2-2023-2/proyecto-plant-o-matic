@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Segundo post"
+title:  "Bitácora hasta séptima semana"
 date:   2023-10-03 19:26:00 -0300
 categories: posts
 ---
