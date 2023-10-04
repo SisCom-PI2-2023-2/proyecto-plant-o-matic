@@ -11,40 +11,7 @@ Esta es la página principal. La pueden ajustar a su gusto usando [markdown](htt
 
 Así se agrega una imagen. En general se guardan en la carpeta `assets`:
 
-![mtstmichel](/assets/mtstmichel.jpg)
-
-
-## Código incluido
-
-Pueden incluir código y que lo pinte adecuadamente:
-
-```c++
-void loop() {
-
-  if (!client.connected()) {
-    reconnect();
-  }
-  client.loop();
-
-  unsigned long now = millis();
-  if (now - lastMsg > 2000) {
-    lastMsg = now;
-    value = random(100);
-
-    //Send value as telemetry
-    DynamicJsonDocument resp(256);
-    resp["value"] = value;
-    char buffer[256];
-    serializeJson(resp, buffer);
-    
-    client.publish("v1/devices/me/telemetry", buffer);
-    
-    Serial.print("Publish message [telemetry]: ");
-    Serial.println(buffer);
-    
-  }
-}
-```
+![plantasss](/assets/plantasss.jpg)
 
 ## Otras páginas
 
