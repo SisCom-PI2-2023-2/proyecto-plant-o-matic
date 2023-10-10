@@ -4,12 +4,7 @@
 
 layout: home
 ---
-
-Esta es la página principal. La pueden ajustar a su gusto usando [markdown](https://www.markdownguide.org/basic-syntax/)
-
 ## Ejemplo
-
-Así se agrega una imagen. En general se guardan en la carpeta `assets`:
 
 ![plantasss](/assets/plantasss.jpg)
 
