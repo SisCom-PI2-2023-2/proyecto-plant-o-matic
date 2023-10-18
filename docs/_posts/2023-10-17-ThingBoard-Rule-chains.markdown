@@ -13,3 +13,5 @@ categories: posts
 
 ![Temperatura](/assets/humedad.jpg)
 
+- GRACIAS! @octarevetria
+
