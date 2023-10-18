@@ -9,3 +9,7 @@ categories: posts
 
 ![Temperatura](/assets/Temperatura.jpg)
 
+`Humedad`
+
+![Temperatura](/assets/humedad.jpg)
+
