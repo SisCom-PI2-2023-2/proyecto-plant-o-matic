@@ -12,11 +12,12 @@ categories: posts
 `Temperatura`
 
 - Entra el dato, verifica que sea telemetria y luego revisa si es device "termometro".
-- No es, envia log "wrong device". Si es toma el valor y resuelve.
+- No es, envia log "wrong device". Si es, toma el valor y resuelve la accion a tomar.
 
 ![Temperatura](/assets/Temperatura.jpg)
 
 `Humedad`
+
 
 ![Temperatura](/assets/humedad.jpg)
 
