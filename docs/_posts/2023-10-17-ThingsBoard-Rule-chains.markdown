@@ -18,8 +18,9 @@ categories: posts
 
 `Humedad`
 
+- La logica es simimar a la de la temperatura pero cambian las acciones a tomar segun los parametros medidos.
 
-![Temperatura](/assets/humedad.jpg)
+![humedad](/assets/humedad.jpg)
 
 - GRACIAS! @octarevetria
 
