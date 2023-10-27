@@ -8,12 +8,15 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
+#include <DallasTemperature.h>
 
 // Update these with values suitable for your network.
 const char* ssid = "NOMBRE_WIFI";
 const char* password = "PASS_WIFI";
 const char* mqtt_server = "demo.thingsboard.io";
 const char* token = "TOKEN_DEVICE";
+
+DallasTemperature sensores(&temperatura);
 
 // Connection objects
 WiFiClient espClient;
@@ -96,25 +99,35 @@ void callback(char* topic, byte* payload, unsigned int length) {
       serializeJson(resp, buffer);
       client.publish(outTopic, buffer);
     }
-    
-    if (metodo=="setLedStatus") {  //Set led status and update attribute value via MQTT
-      
-      boolean estado = incoming_message["params"];
-
-      if (estado) {
-        digitalWrite(LED_BUILTIN,LOW); //turn on led
-      } else {
-        digitalWrite(LED_BUILTIN,HIGH); //turn off led
-      }
-
-      //Attribute update
-      DynamicJsonDocument resp(256);
-      resp["estado"] = estado;
-      char buffer[256];
-      serializeJson(resp, buffer);
-      client.publish("v1/devices/me/attributes", buffer);
-      Serial.print("Publish message [attribute]: ");
-      Serial.println(buffer);
+    if (metodo == "getTemperature1") {
+        sensores.requestTemperatures(); // Request temperatures
+        temp1 = sensores.getTempCByIndex(0); // Sensor 1
+        String dataJS = "{\"Temperatura 1\":" + String(temp1, 3) + "}";
+        char json[100];
+        dataJS.toCharArray(json, dataJS.length() + 1);
+        mqttClient.publish("v1/devices/me/telemetry", json);
+    } else if (metodo == "getTemperature2") {
+        sensores.requestTemperatures(); // Request temperatures
+        temp2 = sensores.getTempCByIndex(1); // Assuming Sensor 2
+        String dataJS = "{\"Temperatura 2\":" + String(temp2, 3) + "}";
+        char json[100];
+        dataJS.toCharArray(json, dataJS.length() + 1);
+        mqttClient.publish("v1/devices/me/telemetry", json);
+    } else if (metodo == "setLedStatus") {
+        boolean estado = incoming_message["params"];
+        if (estado) {
+            digitalWrite(LED_BUILTIN, LOW); // Turn on led
+        } else {
+            digitalWrite(LED_BUILTIN, HIGH); // Turn off led
+        }
+        // Attribute update
+        DynamicJsonDocument resp(256);
+        resp["estado"] = estado;
+        char buffer[256];
+        serializeJson(resp, buffer);
+        client.publish("v1/devices/me/attributes", buffer);
+        Serial.print("Publish message [attribute]: ");
+        Serial.println(buffer);
     }
   }
 }
@@ -144,6 +157,7 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
+  sensores.begin();
 }
 
 void loop() {
