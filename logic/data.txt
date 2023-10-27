@@ -1,6 +1,1 @@
-0.00078259
-13.1538
-75.5605
-45.865
-53.2767
-0.00078259
+mosquitto_pub -d -q 1 -h demo.thingsboard.io -p 1883 -t v1/devices/me/telemetry -i v06kw2zt9g62noofndx2 -u martin -P 123456 -m "{temperature:25}"
