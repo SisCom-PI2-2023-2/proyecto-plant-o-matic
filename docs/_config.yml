@@ -20,8 +20,8 @@
 domain: siscom-pi2-2023-2.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic  # the base hostname and protocol for your site, e.g. http://example.com
 
-title: Proyecto Impresionante!
-email: your-email@example.com
+title: Proyecto Plant-O-Matic
+email: elinamasculiatte@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Trabajo realizado en el marco de la asignatura Proyecto Integrador 2, Universidad ORT Uruguay.
 baseurl: "/proyecto-plant-o-matic" # the subpath of your site, e.g. /blog
