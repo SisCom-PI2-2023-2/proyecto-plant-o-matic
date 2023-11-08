@@ -12,6 +12,7 @@ permalink: /equipo/
 <img src="/assets/Octavio.jpeg" alt="Octavio" width="300" height="auto">
 <img src="/assets/Octavio.jpeg" alt="image" width="50%" height="auto">
 <img src="img/assets/Octavio.jpeg" alt="Octavio" width="50%" height="auto">
+![Octavio](/assets/Octavio.jpeg)
 
 ### Martin Fajardo
 #### Número de estudiante: 229101
