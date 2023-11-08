@@ -9,6 +9,7 @@ permalink: /equipo/
 ### Octavio Revetria
 #### Número de estudiante: 232745
 ![Octavio](/assets/Octavio.jpeg =100x100)
+![Octavio](/assets/Octavio.jpeg)
 ![Octavio](/assets/Octavio.jpeg) {:height="100px" width="100px"}
 ![Octavio](/assets/Octavio.jpeg)
 
