@@ -4,4 +4,4 @@
 
 layout: home
 ---
-![plantasss](/assets/plantasss.jpg)
+![prototipo](/assets/prototipo.jpg)
