@@ -4,6 +4,8 @@ title: Equipo
 permalink: /equipo/
 ---
 
-## Información del equipo...
+# Miembros del Equipo
+
+## Octavio Revetria
 
 Pueden poner links y fotos!
