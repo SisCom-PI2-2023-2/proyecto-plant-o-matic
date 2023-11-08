@@ -9,7 +9,7 @@ permalink: /equipo/
 ### Octavio Revetria
 #### Número de estudiante: 232745
 ![Octavio](/assets/Octavio.jpeg)
-<img src="/assets/Octavio.jpeg" alt="image" width="50%" height="auto">
+<img src="/assets/Octavio.jpeg" alt="Octavio" width="50%" height="auto">
 
 ### Martin Fajardo
 #### Número de estudiante: 229101
