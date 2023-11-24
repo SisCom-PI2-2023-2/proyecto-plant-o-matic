@@ -5,7 +5,7 @@ date: 2023-10-10 20:32:00 -0300
 categories: posts
 ---
 
-![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Root.jpg)
+![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
 
 `Materiales`
 
