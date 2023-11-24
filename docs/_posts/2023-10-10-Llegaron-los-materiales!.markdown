@@ -5,7 +5,7 @@ date: 2023-10-10 20:32:00 -0300
 categories: posts
 ---
 
-![Materiales](/assets/Materiales)
+![Materiales](/assets/Materiales.jpg)
 
 `Materiales`
 
