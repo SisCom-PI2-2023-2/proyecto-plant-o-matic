@@ -15,7 +15,7 @@ Luego de agregar prinln y varias horas de investigación, vimos que una de las c
 
 ![Log](/assets/WhatsApp Image 2023-11-16 at 14.23.01.jpeg)
 
-![Log](/assets/WhatsApp Image 2023-11-16 at 14.25.58.jpeg)
+![Log](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/WhatsApp%20Image%202023-11-16%20at%2014.23.01.jpeg)
 
 
 
