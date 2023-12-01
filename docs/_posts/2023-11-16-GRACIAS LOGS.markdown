@@ -9,7 +9,7 @@ categories: posts
 
 
 Sabíamos que Thingsboard y la placa se estaban comunicado por RPC. Por algún motivo dejó de funcionar.
-Luego de agregar prinln y varias horas de investigación, vimos que una de las cadenas que habíamos creado estaba como Root, esto afectaba la entrada RPC.
+Luego de agregar println y varias horas de investigación, vimos que una de las cadenas que habíamos creado estaba como Root, esto afectaba la entrada RPC.
 
 
 
