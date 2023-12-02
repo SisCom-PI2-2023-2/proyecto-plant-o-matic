@@ -21,7 +21,7 @@ En resumen el usuario tendrá a sus disposición estas funciones:
    * Definir la temperatura para las alertas de helada
    * Disponer de humedad y temperatura de los cultivos a distancia
 
-##Plan de Desarrollo
+## Plan de Desarrollo
 
 
 Quotes
