@@ -11,9 +11,8 @@ categories: posts
 ![EnvíoThings1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings1.jpg)
 
 
-![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
-
 `Materiales`
+![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
 
 - DS18B20 Sensor de temperatura
 - MK0280 Sensor de humedad del suelo
