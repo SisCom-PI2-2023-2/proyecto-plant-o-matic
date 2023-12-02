@@ -14,7 +14,7 @@ Fue necesario descargar barias librerias y encontrar el driver correcto.
 
 ´Thingsboard´
 -
-Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opcion Claud. Ademas Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opcion Demo no.
-Thingsboard ofrece la opcion de exportar e importar, asi que no perdimos mucho tiempo en esto.
+Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opcion Claud. Ademas Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opción Demo no.
+En Thingsboard podemos exportar e importar, asi que no perdimos mucho tiempo en esto.
 
-- Usuario Thingsboard Demo : ........
+- Usuario Thingsboard Demo : martinfajardodargenio@hotmail.com
