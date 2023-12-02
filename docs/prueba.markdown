@@ -4,8 +4,6 @@ title: Resumen del Proyecto
 permalink: /resumen/
 ---
 
-## Resumen del Proyecto
-
 #### Elección del problema
 A la hora de elegir un tema para desarrollar, el mantenimiento de los jardines fue una tematica que llamó significativamente nuestra atención. Principalmente porque sentiamos que con varias de las herramientas que existen en la actualidad este problema era mucho más abordable que antes.
 
