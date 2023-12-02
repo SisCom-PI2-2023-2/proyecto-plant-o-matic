@@ -11,3 +11,10 @@ categories: posts
 ![IDE1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/IDE1.png)
 Descargamos y configuramos el programa para gestionar la placa ESP8266. 
 Fue necesario descargar barias librerias y encontrar el driver correcto.
+
+´Thingsboard´
+-
+Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opcion Claud. Ademas Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opcion Demo no.
+Thingsboard ofrece la opcion de exportar e importar, asi que no perdimos mucho tiempo en esto.
+
+- Usuario Thingsboard Demo : ........
