@@ -31,4 +31,4 @@ permalink: /equipo/
 #### Número de estudiante: 231724
 #### Carrera: Ingeniería en Telecomunicaciones
 
-# El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.
+El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.
