@@ -11,8 +11,8 @@ Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, per
 
  `Mensaje`
 
-![No detecta ads 1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/No detecta ads 1.jfif)
+![ads1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads1.jpg)
 
-![No detecta ads 2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/No detecta ads 2.jfif)
+![ads2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads2.jpg)
 
  
