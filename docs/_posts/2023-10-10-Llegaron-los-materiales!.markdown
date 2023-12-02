@@ -7,6 +7,9 @@ categories: posts
 
 `Código envío de datos a Thingsboard`
 
+![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/assets/EnvíoThings0.jpg)
+![EnvíoThings1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/assets/EnvíoThings1.jpg)
+
 
 ![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
 
