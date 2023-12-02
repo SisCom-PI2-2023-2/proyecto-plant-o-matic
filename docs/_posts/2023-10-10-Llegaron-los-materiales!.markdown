@@ -1,9 +1,12 @@
 ---
 layout: post
-title: "Llegaron los materiales!"
+title: "Martín prueba enviar datos a Thingsboard y  ¡Llegaron los materiales!"
 date: 2023-10-10 20:32:00 -0300
 categories: posts
 ---
+
+`Código envío de datos a Thingsboard`
+
 
 ![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
 
