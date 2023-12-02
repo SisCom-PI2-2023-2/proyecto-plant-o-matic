@@ -5,7 +5,7 @@ date: 2023-10-10 20:32:00 -0300
 categories: posts
 ---
 
-`Código envío de datos a Thingsboard`
+`Envío de datos a Thingsboard`
 
 ![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings0.jpg)
 ![EnvíoThings1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings1.jpg)
