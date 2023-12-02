@@ -4,7 +4,7 @@ title: Equipo
 permalink: /equipo/
 ---
 
-# Miembros del Equipo
+# Miembros del Equipo Plant-O-Matic
 
 ### Octavio Revetria
 #### Número de estudiante: 232745
@@ -30,3 +30,5 @@ permalink: /equipo/
 ### Javier Iglesias
 #### Número de estudiante: 231724
 #### Carrera: Ingeniería en Telecomunicaciones
+
+# El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.
