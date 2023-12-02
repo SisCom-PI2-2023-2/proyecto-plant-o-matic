@@ -8,8 +8,13 @@ categories: posts
 `Envío de datos a Thingsboard`
 
 ![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings0.jpg)
-![EnvíoThings1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings1.jpg)
+Define un dispositivo y le pone las credenciales
+![EnvíoThings1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings3.jpg)
+Lo importante es el else, que se define el json con el dispositivo que hayamos creado, en este caso "temperature
+![EnvíoThings3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings3.jpg)
+La placa que se usó para estas pruebas no carga las librerias de Thingsboard, pero no es la placa del proyecto
 ![EnvíoThings2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings2.jpg)
+
 
 
 
