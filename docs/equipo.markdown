@@ -26,4 +26,4 @@ permalink: /equipo/
 #### Carrera: Ingeniería en Telecomunicaciones
 ![Javi](/assets/Javi.jpeg)
 
-El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.
+El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.   
