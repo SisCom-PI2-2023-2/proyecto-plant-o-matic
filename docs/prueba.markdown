@@ -29,7 +29,7 @@ Se definieron varias pruebas conceptuales intentando preservar la modularidad en
      
 El principal riesgo de este tipo de pruebas, es que aunque los conceptos puedan funcionar de manera independiente, es necesario unificarlos para lograr una solución, y en ese proceso suelen surgir problemas en los límites.
 
-La siguiente prueba de concepto consistió en simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia MQTTX, una herramienta destinada a clientes MQTT. La prueba ofrece la ventaja de validar la correcta transmisión del mensaje MQTT desde ThingsBoard. En caso de la prueba fuera enviando directamente a la placa y encontraramos un error, sería necesario diagnosticar si el problema se originó durante el envío o la recepción. Ocasionando grandes pérdidas de tiempo para todo el equipo.
+La siguiente prueba de concepto consistió en simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia MQTTX, una herramienta destinada a clientes MQTT. La prueba ofrece la ventaja de validar la correcta transmisión del mensaje MQTT desde ThingsBoard. Si la prueba fuera enviando directamente a la placa y encontraramos un error, sería necesario diagnosticar si el problema se originó durante el envío o la recepción. Ocasionando grandes pérdidas de tiempo para todo el equipo.
 
 #### Prueba de boton toggle
 ##### Fotos y descripción
