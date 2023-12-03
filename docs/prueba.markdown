@@ -22,7 +22,7 @@ En resumen el usuario tendrá a sus disposición estas funciones:
    * Disponer de humedad y temperatura de los cultivos a distancia
 
 ## Planificación de pruebas y validación de conceptos
-
+Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. 
 #### Prueba de boton toggle
 ##### Fotos y descripción
 ##### Items de la prueba, hardware y software
