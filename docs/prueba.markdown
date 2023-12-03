@@ -22,9 +22,11 @@ En resumen el usuario tendrá a sus disposición estas funciones:
    * Disponer de humedad y temperatura de los cultivos a distancia
 
 ## Planificación de pruebas y validación de conceptos
-Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos dividirnos en cuatro tipos de pruebas iniciales:
-   * Diseño del sistema y elección de componentes
-   * 
+Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en tres problemas iniciales:
+   * Prueba de sensor de humedad y temperatura con placa ESP8266
+   * Prueba de rule chains de ThingsBoard
+   * Desarrollo de GitHub Pages con Bitácora
+
 #### Prueba de boton toggle
 ##### Fotos y descripción
 ##### Items de la prueba, hardware y software
