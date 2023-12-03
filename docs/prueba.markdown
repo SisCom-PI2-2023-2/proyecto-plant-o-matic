@@ -39,7 +39,7 @@ Una vez desarrolladas las pruebas iniciales, nuestro plan es continuar con prueb
 
 
 ##### Prueba de integración de telemetrías de los sensores en ThingsBoard
-El objetivo es incorporar las mediciones de los sensores que recibe la placa a ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro dsconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidad en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiria visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
+El objetivo es incorporar las mediciones de los sensores que recibe la placa a ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro dsconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidades en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiria visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
 
 
 
