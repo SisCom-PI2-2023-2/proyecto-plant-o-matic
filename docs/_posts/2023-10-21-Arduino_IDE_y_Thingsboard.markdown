@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Arduino IDE y ThingsBoard"
-date: 2023-21-05 20:30:00 -0300
+date: 2023-10-21 20:30:00 -0300
 categories: posts
 ---
 
