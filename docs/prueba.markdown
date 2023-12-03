@@ -23,7 +23,7 @@ En resumen el usuario tendrá a sus disposición estas funciones:
 
 ### Planificación de pruebas de concepto y prototipos
 Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en dos pruebas iniciales.
-Pruebas de concepto iniciales:
+Estas pruebas iniciales son:
    * Prueba de sensor de humedad y temperatura con placa ESP8266
    * Prueba de rule chains de ThingsBoard
      
