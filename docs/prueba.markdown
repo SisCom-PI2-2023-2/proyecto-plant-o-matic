@@ -26,6 +26,7 @@ Se definieron varias pruebas conceptuales intentando preservar la modularidad en
    * Prueba de sensor de humedad y temperatura con placa ESP8266
    * Prueba de rule chains de ThingsBoard
    * Desarrollo de GitHub Pages con Bitácora
+A partir, del de
 
 #### Prueba de boton toggle
 ##### Fotos y descripción
