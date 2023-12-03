@@ -22,11 +22,12 @@ En resumen el usuario tendrá a sus disposición estas funciones:
    * Disponer de humedad y temperatura de los cultivos a distancia
 
 ## Planificación de pruebas y validación de conceptos
-Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en tres problemas iniciales:
+Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en tres pruebas de concepto iniciales:
    * Prueba de sensor de humedad y temperatura con placa ESP8266
    * Prueba de rule chains de ThingsBoard
    * Desarrollo de GitHub Pages con Bitácora
-A partir, del de
+El principal riesgo de este tipo de pruebas, es que aunque los conceptos puedan funcionar de manera independiente, es necesario unificarlos para lograr una solución, y en ese proceso suelen surgir problemas en los límites.
+La siguiente prueba de concepto consistió en simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia MQTTX, una herramienta destinada a clientes MQTT. La prueba ofrece la ventaja de validar la correcta transmisión del mensaje MQTT desde ThingsBoard. En caso de la prueba fuera enviando directamente a la placa y encontraramos un error, sería necesario diagnosticar si el problema se originó durante el envío o la recepción. Ocasionando grandes pérdidas de tiempo para todo el equipo.
 
 #### Prueba de boton toggle
 ##### Fotos y descripción
