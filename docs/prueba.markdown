@@ -33,11 +33,15 @@ El propósito de esta prueba es establecer la comunicación entre los sensores y
 ##### Prueba de rule chains de ThingsBoard
 El cometido de esta prueba consistió en comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y establecer una rule chain que se alineara con la lógica de nuestra solución. Esta prueba contaba con varios riesgos, por eso decidimos destinarle dos integrantes del equipo. El principal obstáculo, era nuestra total inexperiencia con la plataforma ThingsBoard. Profundizando en este problema, no teníamos certeza de si las rule chains nos permitirían alcanzar toda la lógica y comunicación necesarias para desarrollar la solución que teníamos en mente. Además, en caso necesitar necesitar alarmas no nos quedaba claro si era posible integrarlas a la rule chain.
 
-Una vez desarrolladas las pruebas iniciales, nuestro plan es continuar con pruebas para integrar el sensado con la plataforma. Es decir, recibir las telemetrías del los sensores en ThingsBoard en un panel gráfico acorde. Por otro lado, otra prueba de concepto necesaria fue probar un envío MQTT del tipo RPC para validar acciones remotas.
+Una vez desarrolladas las pruebas iniciales, nuestro plan es continuar con pruebas para integrar el sensado con la plataforma. Es decir, recibir las telemetrías de los sensores en ThingsBoard en un panel gráfico acorde. Por otro lado, otra prueba de concepto necesaria fue probar un envío MQTT del tipo RPC para validar acciones remotas.
 
-##### Prueba de integrar telemetrías del los sensores en ThingsBoard
+##### Prueba de comandos RPC envíados desde ThingsBoard
 
-##### envío MQTT del tipo RPC
+
+##### Prueba de integración de telemetrías de los sensores en ThingsBoard
+El objetivo es incorporar las mediciones de los sensores que recibe la placa a ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro dsconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidad en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiria visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
+
+
 
 ##### Prototipos 1 o 2 prueba con boton a placa y prueba del ultimo jueves??
 
