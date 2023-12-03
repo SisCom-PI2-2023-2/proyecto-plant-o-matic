@@ -22,7 +22,7 @@ La placa que se usó para estas pruebas no carga las librerias de Thingsboard, p
 
 ![EnvíoThings2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings2.jpg)
 
-- https://youtube.com/shorts/e0aFwL-xqUc?feature=share
+ https://youtube.com/shorts/e0aFwL-xqUc?feature=share
 
 `Materiales`
 -
