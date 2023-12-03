@@ -24,5 +24,6 @@ permalink: /equipo/
 ### Javier Iglesias
 #### Número de estudiante: 231724
 #### Carrera: Ingeniería en Telecomunicaciones
+![Javi](/assets/Javi.jpeg)
 
 El contenido de este proyecto tiene como responsables a los cuatro integrantes de este equipo.
