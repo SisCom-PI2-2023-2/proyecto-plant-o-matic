@@ -4,7 +4,8 @@ title: "Nos_reunimos"
 date: 2023-12-03 12:30:00 -0300
 categories: posts
 ---
-´Reunión´
+`Reunión`
+
 Nos reunimos para poder cerrar algunas ideas y seguir haciando pruebas.
 
  - Javier llegó a un código "final
