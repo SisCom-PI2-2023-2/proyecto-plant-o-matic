@@ -469,5 +469,10 @@ void loop() {
 }
 
 ```
+![Proto1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Proto1.jpeg)
+
+![Proto1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Proto2.jpeg)
+
+https://youtu.be/8JCpvcTHoBs
 
 
