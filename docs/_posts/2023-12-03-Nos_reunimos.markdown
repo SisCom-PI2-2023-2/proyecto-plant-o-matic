@@ -1,9 +1,11 @@
+
 ---
 layout: post
 title: "Nos reunimos"
-date: 2023-12-03 12:30:00 -0300
+date: 2023-12-01 20:26:00 -0300
 categories: posts
 ---
+
 `Reunión`
 
 Nos reunimos para poder cerrar algunas ideas y seguir haciando pruebas.
