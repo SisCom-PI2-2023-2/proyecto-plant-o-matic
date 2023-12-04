@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Prueba_Sensores"
+title: "Prueba Sensores"
 date: 2023-10-23 16:00:00 -0300
 categories: posts
 ---
