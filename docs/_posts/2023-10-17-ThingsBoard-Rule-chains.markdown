@@ -16,12 +16,14 @@ Octavio creó un usuario en Thingsboard Cloud para ir realizando pruebas.
 `Temperatura`
 
 ![Temperatura](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Temperatura.jpg)
+
 Entra el dato, verifica que sea telemetria y luego revisa si es device "termometro".
 - No es, envia log "wrong device". Si es, toma el valor y resuelve la accion a tomar.
   
 `Humedad`
 
 ![humedad](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/humedad.jpg)
+
 La logica es simimar a la de la temperatura pero cambian las acciones a tomar segun los parametros medidos.
 - GRACIAS! @octarevetria
 
