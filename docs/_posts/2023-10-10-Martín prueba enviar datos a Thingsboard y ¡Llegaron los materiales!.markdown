@@ -8,7 +8,7 @@ categories: posts
 `Envío de datos a Thingsboard`
 -
 
-![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings0.jpg)
+![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings0)
 
 Define un dispositivo y le pone las credenciales
 
