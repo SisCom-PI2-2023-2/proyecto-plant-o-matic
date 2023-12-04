@@ -1,8 +1,8 @@
 
 ---
 layout: post
-title: "Nos reunimos"
-date: 2023-12-01 20:26:00 -0300
+title:  "Nos reunimos"
+date:   2023-12-01 12:30:00 -0300
 categories: posts
 ---
 
