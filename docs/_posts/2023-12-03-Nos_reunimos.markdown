@@ -10,8 +10,9 @@ Nos reunimos para poder cerrar algunas ideas y seguir haciando pruebas.
  - Javier llegó a un código "final
  - Martín hizo funcionar el sensor de humedad
 
-   ```c++
-   #include <ESP8266WiFi.h>
+ ```c++
+
+#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include <DallasTemperature.h>
