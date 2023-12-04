@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GRACIAS_LOGS"
+title: "GRACIAS LOGS"
 date: 2023-11-16 16:00:00 -0300
 categories: posts
 ---
