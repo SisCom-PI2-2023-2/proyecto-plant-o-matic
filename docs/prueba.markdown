@@ -79,4 +79,4 @@ Quotes
 
    > Cita o recuadro
 
-
+![s-l1600](/assets/s-l1600.jpg)
