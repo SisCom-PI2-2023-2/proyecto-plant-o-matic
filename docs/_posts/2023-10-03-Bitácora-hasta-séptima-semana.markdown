@@ -173,3 +173,9 @@ int main() {
 ```
 
 `Código conexión Wifi`
+
+![159Wifi0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/159Wifi0.jpeg)
+![159Wifi1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/159Wifi1.jpeg)
+![159Wifi2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/159Wifi2.jpeg)
+
+
