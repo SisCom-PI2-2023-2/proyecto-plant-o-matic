@@ -5,7 +5,7 @@ date:   2023-10-03 19:26:00 -0300
 categories: posts
 ---
 
-`Bitácora hasta séptima semana`
+# Bitácora hasta séptima semana
 
 - Planificación de tareas
 
