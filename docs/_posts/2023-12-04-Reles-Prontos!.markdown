@@ -7,6 +7,9 @@ categories: posts
 
 # Martin pudo con los reles!
 
+![Rele](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Rele.jpg)
+
+https://youtu.be/gQaw36v5Qus
 
 
 
