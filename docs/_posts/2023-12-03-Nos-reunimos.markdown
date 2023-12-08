@@ -12,7 +12,7 @@ Nos reunimos para poder cerrar algunas ideas y seguir haciando pruebas.
 
  - Javier llegó a un código "final"
  - Martín hizo funcionar el sensor de humedad
- - Tenemos problemas con los reles :(
+ - Tenemos problemas con los reles 
 
  ```c++
 
@@ -32,7 +32,7 @@ private:
     std::map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> datosDePlantas;
 
     void inicializarDatosDePlantas() {
-        datosDePlantas["Rosa"] = {{15, 29}, {40, 70}};
+        datosDePlantas["Rosa"] = {{15, 29}}, {40, 70}};
         datosDePlantas["Cactus"] = {{20, 35}, {10, 30}};
         datosDePlantas["Helecho"] = {{18, 35}, {60, 80}};
         datosDePlantas["Orquídea"] = {{16, 35}, {55, 75}};
