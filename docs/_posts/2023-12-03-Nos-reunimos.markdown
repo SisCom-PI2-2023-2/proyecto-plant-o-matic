@@ -33,9 +33,9 @@ private:
 
     void inicializarDatosDePlantas() {
         datosDePlantas["Rosa"] = {{15, 29}}, {40, 70}};
-        datosDePlantas["Cactus"] = {{20, 35}, {10, 30}};
-        datosDePlantas["Helecho"] = {{18, 35}, {60, 80}};
-        datosDePlantas["Orquídea"] = {{16, 35}, {55, 75}};
+        datosDePlantas["Cactus"] = {{20, 35}}, {10, 30}};
+        datosDePlantas["Helecho"] = {{18, 35}}, {60, 80}};
+        datosDePlantas["Orquídea"] = {{16, 35}}, {55, 75}};
         // Agregar más plantas según sea necesario
     }
 
