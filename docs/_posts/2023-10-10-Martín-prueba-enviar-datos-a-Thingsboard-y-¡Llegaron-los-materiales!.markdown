@@ -5,8 +5,7 @@ date: 2023-10-10 20:32:00 -0300
 categories: posts
 ---
 
-`Envío de datos a Thingsboard`
--
+# Envío de datos a Thingsboard
 
 ![EnvíoThings0](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Env%C3%ADoThings0.jpg)
 
@@ -24,8 +23,8 @@ La placa que se usó para estas pruebas no carga las librerias de Thingsboard, p
 
  https://youtube.com/shorts/e0aFwL-xqUc?feature=share
 
-`Materiales`
--
+# Materiales
+
 
 ![Materiales](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Materiales.jpg)
 
