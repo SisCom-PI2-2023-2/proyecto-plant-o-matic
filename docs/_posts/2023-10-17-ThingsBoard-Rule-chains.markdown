@@ -5,8 +5,8 @@ date: 2023-10-17 22:25:00 -0300
 categories: posts
 ---
 
-`Usuario Thingsboard`
--
+# Usuario Thingsboard
+
 Octavio creó un usuario en Thingsboard Cloud para ir realizando pruebas.
 
 `Root`
