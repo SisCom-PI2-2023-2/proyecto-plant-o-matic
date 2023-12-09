@@ -13,6 +13,7 @@ Luego de agregar println y varias horas de investigación, vimos que una de las 
 
 
 `Logs`
+
 ![Log1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Log1.jpeg)
 ![Log2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Log2.jpeg)
 
