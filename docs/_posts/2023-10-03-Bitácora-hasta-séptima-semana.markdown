@@ -15,7 +15,7 @@ categories: posts
 
 - Recibimos pocos materiales de los solicitados. Volvimos a realizar el pedido pero esta vez teniendo la certeza de que el proveedor tiene en stock. 
 
-- @nJavo estuvo a mil con el código y @Martin investigando
+- @nJavo y @martin229101 estuvieron a mil investigando codigos
 
  `Código humedad`
 
