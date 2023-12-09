@@ -119,5 +119,3 @@ void connectwifi() //Para conectarse al wifi
 }
 
 ```
-
-![Pruebasensores](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Pruebasensores.jpg)
