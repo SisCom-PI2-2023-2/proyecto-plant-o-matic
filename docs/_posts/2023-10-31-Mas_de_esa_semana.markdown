@@ -1,0 +1,124 @@
+---
+layout: post
+title: "Mas de esta semana"
+date: 2023-10-31 16:00:00 -0300
+categories: posts
+---
+
+`Thingboard`
+
+- Esta semana seguimos con pruebas en Thingsboard
+
+`Arduino IDE`
+
+- Tratamos de crear y compilar un mejor código para la union entre hardware con thingsboard.
+
+```c++
+
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <pubsubclient.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+//INTERNET//
+String wifiSSID = "Manuel-5GHz";
+String wifiPassword = "26831706";
+
+#define MQTT_SERVER   "demo.thingsboard.io"
+#define MQTT_PORT     1883
+#define MQTT_USERNAME "martin"      // Access token
+#define MQTT_PASSWORD "123456"          // whatever u want
+#define MQTT_NAME     "rbp222y1d1717mqq2jdr"
+
+WiFiClient client;
+PubSubClient mqttClient(client);
+
+void connectwifi();
+//void callback(char* topic, byte* payload, unsigned int length);
+const char* topic = "v1/devices/me/telemetry";
+
+//SENSORES//
+OneWire temperatura(2);
+DallasTemperature sensores(&temperatura); //Creacion de clientes
+
+float temp1 = 10;
+float temp2 = 20;
+float hum1 = 30;
+
+void setup() {
+
+  delay(1000);
+  connectwifi(); //Esta funcion se conecta al wifi
+  Serial.begin(9600); //Necesario para debuguear en el puerto serial
+  mqttClient.setServer(MQTT_SERVER, MQTT_PORT); //Inicio del cliente mqtt para el envio de datos
+  //mqttClient.setCallback(callback);
+  mqttClient.subscribe(topic); //Subscripcion al topico de envio de daytso
+  sensores.begin(); //Incio de la clase sensores
+
+}
+
+void loop() {
+  hum1 =  analogRead(A0); //Lectura de analogica en el pin A0
+  Serial.print("Humedad 1 = ");
+  Serial.print(hum1);
+  Serial.println(" %");
+  delay(1000);
+  sensores.requestTemperatures(); //Pregunta oor las temps
+  temp1 = sensores.getTempCByIndex(0); //Sensor 1
+  temp2 = sensores.getTempCByIndex(1); // Sensor 2
+  //hum1 = sensores.getTempCByIndex(2);
+  Serial.print("Temperatura 1 = ");
+  Serial.print(temp1);
+  Serial.println(" C");
+  delay(1000); 
+  Serial.print("Temperatura 2 = ");
+  Serial.print(temp2);
+  Serial.println(" C");
+  delay(1000);
+
+
+  if (WiFi.status() != WL_CONNECTED) //Basicamente si no esta conectado, conectate, si esta conecytado entra ak MQTT y manda los datos
+  {
+    connectwifi();
+  }
+  else if (WiFi.status() == WL_CONNECTED)
+  {
+    //Serial.println("Connected to wifi");
+    //delay(1000);
+
+    if (mqttClient.connected() == false) {
+    Serial.print("MQTT connection... ");
+    if (mqttClient.connect(MQTT_NAME, MQTT_USERNAME, MQTT_PASSWORD)) {
+      Serial.println("connected");
+      delay(1000);
+    } else {
+      Serial.println("failed");
+      delay(5000);
+    }
+  } else {
+    mqttClient.loop();
+    String dataJS = "{\"Temperatura 1\":" + String(temp1,3) + ",\"Temperatura 2\":" + String(temp2,3) + ",\"Humedad 1\":" + String(hum1,3) +"}";
+    char json[100];
+    dataJS.toCharArray(json,dataJS.length()+1);
+    mqttClient.publish("v1/devices/me/telemetry", json);
+    delay(1000); 
+  }
+  }
+}
+
+void connectwifi() //Para conectarse al wifi
+{
+  Serial.println("Connecting to wifi");
+  WiFi.begin(wifiSSID.c_str(), wifiPassword.c_str());
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print(".");
+    delay(500);
+  }
+  Serial.println("Connected to wifi");
+}
+
+```
+
+![Pruebasensores](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Pruebasensores.jpg)
