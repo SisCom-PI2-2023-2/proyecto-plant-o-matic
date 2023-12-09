@@ -21,6 +21,6 @@ No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard pod
 
   ![Things1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Things1.jpg)
 
-  ![Things2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Things2.jpg)
+  ![Thing2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Thing2.jpg)
 
-  ![Things3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Things3.jpg)
+  ![Thing3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Thing3.jpg)
