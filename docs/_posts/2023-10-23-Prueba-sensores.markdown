@@ -7,7 +7,10 @@ categories: posts
 
 # Empezamos a probar los sensores
 
-- La placa tiene solo una entrada analogica, asi que solo podemos medir el valor de la humedad exacto en un lugar o ver como lo resolvemos.
+- Con los sensores de temperatura no tuvimos problema. 
+- La placa tiene solo una entrada analogica, asi que solo podemos medir el valor de la humedad exacto en un lugar a no ser que usemos dos placas o un conversor a AD (GRACIAS! @Emi720)
+
+`Código prueba sensores temperatura`
 
 ```c++
 
