@@ -23,4 +23,4 @@ No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard pod
 
   ![Thing2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Thing2.jpg)
 
-  ![Thing3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Thing3.jpg)
+  ![things3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/things3.jpg)
