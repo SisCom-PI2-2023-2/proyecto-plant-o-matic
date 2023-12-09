@@ -5,7 +5,9 @@ date: 2023-10-23 16:00:00 -0300
 categories: posts
 ---
 
-codigo 20 octubre Martin
+`Empezamos a probar los sensores`
+
+- La placa tiene solo una entrada analogica, asi que solo podemos medir el valor de la humedad exacto en un lugar o ver como lo resolvemos.
 
 ```c++
 
