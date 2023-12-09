@@ -16,7 +16,7 @@ Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, per
 
 `Mensaje`
  
-![ads1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads1.jpg)
+![ads1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads1.png)
 
 ![ads2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads2.jpg)
 
