@@ -12,7 +12,7 @@ Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, per
    
 `Prototipo Maqueta :0 `
 
-![PrototipoMaqueta2](https://github.com/Masculiatte/proyecto-plant-o-matic/blob/main/docs/assets/PrototipoMaqueta2.jpg)
+![PrototipoMaqueta2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/PrototipoMaqueta2.jpg)
 
 `Mensaje`
  
