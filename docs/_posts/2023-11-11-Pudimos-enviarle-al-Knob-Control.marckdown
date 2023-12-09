@@ -7,4 +7,226 @@ categories: posts
 
 `Codifo de envio a Knob Control`
 
-- Noes 
+```c++
+
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+#include <DallasTemperature.h>
+
+//--------------CONECTO A LA RED
+const char* ssid = "Elina";
+const char* password = "proyecto2";
+const char* mqtt_server = "demo.thingsboard.io"; //"104.196.24.70";
+const char* token = "yxBvaTo366CtIrbS4ZDI";
+// {clientId:"rbp222y1d1717mqq2jdr",userName:"martin",password:"123456"}
+
+//--------------INTERACTUO CON SENSORES DS18B20
+OneWire temperatura(2);
+DallasTemperature sensores(&temperatura);
+
+//--------------CONECCTION OBJECT
+WiFiClient espClient;
+//Creo un cliente MQTT llamado mqttClient que utilizará la funcionalidad de comunicación de red proporcionada por el objeto espClient
+PubSubClient mqttClient(espClient);
+
+//timestamp of the last telemetry update
+//declara una variable llamada lastMsg de tipo unsigned long
+unsigned long lastMsg = 0;
+
+//buffer sizes and messages
+#define MSG_BUFFER_SIZE  (50)
+char msg[MSG_BUFFER_SIZE];
+char msg2[MSG_BUFFER_SIZE];
+
+//json document to store incoming messages
+DynamicJsonDocument incoming_message(256);
+
+//Fake telemetry
+int value = 0;
+
+//Led state
+boolean estado = false;
+
+//Initiates WiFi Connection
+void setup_wifi() {
+
+  delay(10);
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  randomSeed(micros());
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+//This method is called whenever a MQTT message arrives. We must be prepared for any type of incoming message.
+//We are subscribed to RPC Calls: v1/devices/me/rpc/request/+
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  
+  //LOG TO CONSOLE
+  Serial.print("Message arrived [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  //convert topic to string to parse
+  //crea un objeto String llamado _topic a partir de la variable topic
+  String _topic = String(topic);
+
+ Serial.print("ok");
+  if (_topic.startsWith("v1/devices/me/rpc/request/")) {
+
+    //verificar si la cadena de texto almacenada en _topic comienza con la subcadena "v1/devices/me/rpc/request/"
+    //We are in a request, check request number
+    //utiliza el método substring de un objeto String llamado _topic para crear una nueva cadena de texto llamada _number. El valor de _number se obtiene tomando una subcadena de _topic a partir del carácter en la posición 26 hasta el final de la cadena _topic.
+    String _number = _topic.substring(26);
+    
+    Serial.print("[if1]: ");
+    Serial.println("ok");
+    
+    //READ JSON OBJECT 
+    deserializeJson(incoming_message, payload); //convierte el objeto incoming_message (JSON) en una estructura de datos que se pueda manipular (variable payload) 
+    String metodo = incoming_message["method"]; //extraer el valor asociado a la clave "method" de un objeto JSON representado por la variable incoming_message y almacenar ese valor en una variable String llamada metodo
+    
+    if (metodo=="checkStatus") {  //Check device status. Expects a response to the same topic number with status=true.
+      
+      char outTopic[128]; //Declaro un array de caracteres llamado outTopic
+      ("v1/devices/me/rpc/response/"+_number).toCharArray(outTopic,128); //construyendo una cadena que se compone de "v1/devices/me/rpc/response/" seguido por el valor de _number, y luego copia esa cadena construida en el array de caracteres outTopic
+      
+      DynamicJsonDocument resp(256);  //La línea de código que has proporcionado crea un objeto de la clase DynamicJsonDocument llamado resp con una capacidad inicial de 256 bytes.
+      resp["status"] = true; //agrego campo llamado "status" con un valor true a resp
+      char buffer[256];
+      serializeJson(resp, buffer); //se utiliza para serializar un objeto JSON representado por resp y almacenar la representación serializada en el array de caracteres buffer
+      mqttClient.publish(outTopic, buffer); //publica 
+    }
+    if (metodo == "getTemperature1") {
+        sensores.requestTemperatures(); // Esta función se utiliza para solicitar que los sensores DS18B20 conectados al bus OneWire realicen las lecturas de temperatura.
+        int temp1 = sensores.getTempCByIndex(0); // obtiene la temperatura medida por el primer sensor 
+        String dataJS = "{\"Temperatura 1\":" + String(temp1, 3) + "}";//se utiliza para construir una cadena de texto JSON en la variable dataJS
+        char json[100];
+        dataJS.toCharArray(json, dataJS.length() + 1);
+        mqttClient.publish("v1/devices/me/telemetry", json);
+    } else if (metodo == "getTemperature2") {
+        sensores.requestTemperatures(); // Request temperatures
+        int temp2 = sensores.getTempCByIndex(1); // Assuming Sensor 2
+        String dataJS = "{\"Temperatura 2\":" + String(temp2, 3) + "}";
+        char json[100];
+        dataJS.toCharArray(json, dataJS.length() + 1);
+
+        char outTopic[128];
+        ("v1/devices/me/rpc/response/" + _number).toCharArray(outTopic,128);
+        DynamicJsonDocument resp(256);
+        resp["value"] = temp2;
+        char buffer[256];
+        serializeJson(resp, buffer);
+        float floattemp2 = temp2;
+        String floattemp2Cadena = String(floattemp2);
+        mqttClient.publish(outTopic, floattemp2Cadena.c_str());
+        Serial.println(outTopic);
+        Serial.println(buffer);
+    } else if (metodo == "setLedStatus") {
+        boolean estado = incoming_message["params"];
+        if (estado) {
+            digitalWrite(LED_BUILTIN, LOW); // Turn on led
+        } else {
+            digitalWrite(LED_BUILTIN, HIGH); // Turn off led
+        }
+        // Attribute update
+        DynamicJsonDocument resp(256);
+        resp["estado"] = estado;
+        char buffer[256];
+        serializeJson(resp, buffer);
+        mqttClient.publish("v1/devices/me/attributes", buffer);
+        Serial.print("Publish message [attribute]: ");
+        Serial.println(buffer);
+    }
+  }
+}
+
+//RECONECTO
+void reconnect() {
+  // Loop until we're reconnected
+  while (!mqttClient.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect - mqttClient.connect(DEVICE_ID, TOKEN, TOKEN)
+    if (mqttClient.connect("Placa", token, token)) {
+      Serial.println("connected");
+      // Once connected, subscribe to rpc topic
+      mqttClient.subscribe("v1/devices/me/rpc/request/+");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(mqttClient.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  Serial.begin(115200);
+  setup_wifi();
+  mqttClient.setServer(mqtt_server, 1883);
+  mqttClient.setCallback(callback);
+  sensores.begin();
+}
+
+void loop() {
+
+  if (!mqttClient.connected()) {
+    reconnect();
+  }
+  mqttClient.loop();
+ 
+
+  unsigned long now = millis();
+  if (now - lastMsg > 2000) {
+    lastMsg = now;
+    value = random(100);
+
+    //Send value as telemetry
+    DynamicJsonDocument resp(256);
+    resp["value"] = value;
+    char buffer[256];
+    serializeJson(resp, buffer);
+    mqttClient.publish("v1/devices/me/telemetry", buffer);
+    
+    sensores.requestTemperatures(); //Pregunta por las temps
+    int temp1 = sensores.getTempCByIndex(0); //Sensor 1
+    resp["Temperatura 1"] = temp1;
+    serializeJson(resp, buffer);
+    mqttClient.publish("v1/devices/me/telemetry", buffer);
+    //Serial.print("Publish message [telemetry Sensor1]: ");
+    //Serial.println(temp1);
+
+    int temp2 = sensores.getTempCByIndex(1); // Sensor 2
+    resp["Temperatura 2"] = temp2;
+    serializeJson(resp, buffer);
+    mqttClient.publish("v1/devices/me/telemetry", buffer);
+    //Serial.print("Publish message [telemetry Sensor2]: ");
+    //Serial.println(temp2);
+  }
+}
+
+```
+
+
