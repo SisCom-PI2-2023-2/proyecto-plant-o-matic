@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mas de esta semana"
+title: "Más de esta semana"
 date: 2023-10-31 16:00:00 -0300
 categories: posts
 ---
@@ -76,7 +76,6 @@ void loop() {
   Serial.print(temp2);
   Serial.println(" C");
   delay(1000);
-
 
   if (WiFi.status() != WL_CONNECTED) //Basicamente si no esta conectado, conectate, si esta conecytado entra ak MQTT y manda los datos
   {
