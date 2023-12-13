@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reles-Prontos"
+title:  "Reles Prontos"
 date:   2023-12-04 13:00:00 -0300
 categories: posts
 ---
