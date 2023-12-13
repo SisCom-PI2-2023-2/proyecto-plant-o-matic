@@ -10,7 +10,7 @@ categories: posts
 ![Rele](/_posts/Rele.jpeg)
 
 <a href="https://youtu.be/gQaw36v5Qus">Texto del enlace</a>
-(https://youtu.be/gQaw36v5Qus)
+
 
 
 
