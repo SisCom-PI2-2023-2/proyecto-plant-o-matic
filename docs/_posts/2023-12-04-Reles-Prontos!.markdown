@@ -7,7 +7,7 @@ categories: posts
 
 # Martin pudo con los reles!
 
-![rele](/rele.jpeg)
+![rele](/assets/rele.jpeg)
 
 <a href="https://youtu.be/gQaw36v5Qus">Texto del enlace</a>
 
