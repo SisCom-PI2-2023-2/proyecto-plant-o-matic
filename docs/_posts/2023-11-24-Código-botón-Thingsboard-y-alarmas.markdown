@@ -615,5 +615,8 @@ void loop() {
 }
 
 ```
+`Alarmas`
+![Alarmas](/dosc/assets/Alarmas.jpeg)
+
 
 
