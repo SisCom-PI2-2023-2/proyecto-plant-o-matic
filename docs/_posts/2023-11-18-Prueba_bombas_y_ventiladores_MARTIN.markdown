@@ -4,7 +4,9 @@ title: "Bomba y Ventilador"
 date: 2023-11-18 16:00:00 -0300
 categories: posts
 ---
-´Código analógica y método para prender bomba o ventilador´
+`Código analógica y método para prender bomba o ventilador`
+
+```c++
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -263,5 +265,7 @@ void loop() {
 
   }
 }
+
+```
 
 ![BombayVent](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/BombayVent.mp4)
