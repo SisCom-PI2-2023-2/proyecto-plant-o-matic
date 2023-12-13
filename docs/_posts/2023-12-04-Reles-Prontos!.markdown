@@ -7,7 +7,7 @@ categories: posts
 
 # Martin pudo con los reles!
 
-![Rele](/assets/Rele.jpeg)
+![Rele](/docs/assets/Rele.jpeg)
 
 https://youtu.be/gQaw36v5Qus
 
