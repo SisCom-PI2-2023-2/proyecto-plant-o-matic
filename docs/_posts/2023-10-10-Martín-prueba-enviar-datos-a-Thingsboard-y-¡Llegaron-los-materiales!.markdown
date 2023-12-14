@@ -7,26 +7,26 @@ categories: posts
 
 # Envío de datos a Thingsboard
 
-![EnvíoThings0](/docs/assets/Env%C3%ADoThings0.jpg)
+![EnvíoThings0](/proyecto-plant-o-matic/assets/EnvíoThings0.jpg)
 
 Define un dispositivo y le pone las credenciales
 
-![EnvíoThings1](/docs/assets/Env%C3%ADoThings3.jpg)
+![EnvíoThings1](/proyecto-plant-o-matic/assets/EnvíoThings1.jpg)
 
 Lo importante es el else, que se define el json con el dispositivo que hayamos creado, en este caso "temperature
 
-![EnvíoThings3](/docs/assets/Env%C3%ADoThings3.jpg)
+![EnvíoThings3](/proyecto-plant-o-matic/assets/EnvíoThings3.jpg)
 
 La placa que se usó para estas pruebas no carga las librerias de Thingsboard, pero no es la placa del proyecto
 
-![EnvíoThings2](/docs/assets/Env%C3%ADoThings2.jpg)
+![EnvíoThings2](/proyecto-plant-o-matic/assets/EnvíoThings2.jpg)
 
  https://youtube.com/shorts/e0aFwL-xqUc?feature=share
 
 # Materiales
 
 
-![Materiales](/docs/assets/Materiales.jpg)
+![Materiales](/proyecto-plant-o-matic/assets/Materiales.jpg)
 
 - DS18B20 Sensor de temperatura
 - MK0280 Sensor de humedad del suelo
