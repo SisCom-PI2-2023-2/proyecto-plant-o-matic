@@ -9,7 +9,7 @@ categories: posts
 
 `Planificación de tareas`
 
-![Gantt 5 6 y 7](proyecto-plant-o-matic/assets/Gantt 5 6 y 7.jpg)
+![Gantt56y7](/proyecto-plant-o-matic/assets/Gantt56y7.jpg)
 
 - Entregamos la documentación del Anteproyecto y obtuvimos buen resultado.
 
