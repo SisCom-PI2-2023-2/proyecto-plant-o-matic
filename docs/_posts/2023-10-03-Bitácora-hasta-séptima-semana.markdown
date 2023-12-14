@@ -9,7 +9,7 @@ categories: posts
 
 `Planificación de tareas`
 
-![Gantt 5 6 y 7](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/assets/142456291/ccffb95a-4a9a-4a22-bd2a-1f9dac415767)
+![Gantt 5 6 y 7](proyecto-plant-o-matic/assets/Gantt 5 6 y 7.jpg)
 
 - Entregamos la documentación del Anteproyecto y obtuvimos buen resultado.
 
