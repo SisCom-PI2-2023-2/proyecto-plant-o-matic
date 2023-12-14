@@ -6,7 +6,7 @@ categories: posts
 ---
 
 # Arduino IDE
-![IDE1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/IDE1.png)
+![IDE1](proyecto-plant-o-matic/assets/IDE1.png)
 
 Instalamos y configuramos el programa para gestionar la placa ESP8266. Fue necesario descargar varias librerias y encontrar el driver correcto.
 
@@ -19,8 +19,8 @@ No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard pod
 
   `Configuración prueba dispositivos`
 
-  ![Things1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Things1.jpg)
+  ![Things1](proyecto-plant-o-matic/assets/Things1.jpg)
 
-  ![Thing2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Thing2.jpg)
+  ![Thing2](proyecto-plant-o-matic/assets/Thing2.jpg)
 
-  ![things3](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/things3.jpg)
+  ![things3](proyecto-plant-o-matic/assets/things3.jpg)
