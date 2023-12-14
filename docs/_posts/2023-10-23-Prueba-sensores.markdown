@@ -56,4 +56,6 @@ delay(1000);
 
 ![Pruebasensores](/proyecto-plant-o-matic/assets/Pruebasensores.jpg)
 
-https://www.youtube.com/shorts/7EKZ_7OAp7w
+<a href="https://www.youtube.com/shorts/7EKZ_7OAp7w">Video de muestra ventilador</a>
+
+
