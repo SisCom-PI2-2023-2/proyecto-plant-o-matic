@@ -473,7 +473,9 @@ void loop() {
 }
 
 ```
-![Proto](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/Proto.jpg)
+![Proto1](/proyecto-plant-o-matic/assets/Proto1.jpeg)
+
+![Proto2](/proyecto-plant-o-matic/assets/Proto2.jpeg)
 
 
 `Videito`
