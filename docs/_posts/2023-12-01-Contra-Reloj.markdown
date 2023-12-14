@@ -12,13 +12,13 @@ Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, per
    
 `Prototipo Maqueta :0 `
 
-![PrototipoMaqueta2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/PrototipoMaqueta2.jpg)
+![PrototipoMaqueta2](/proyecto-plant-o-matic/assets/PrototipoMaqueta2.jpg)
 
 `Mensaje`
  
-![ads1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads1.png)
+![ads1](/proyecto-plant-o-matic/blob/assets/ads1.png)
 
-![ads2](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ads2.jpg)
+![ads2](/proyecto-plant-o-matic/assets/ads2.jpg)
 
   -   ¡A REVISAR!
 
