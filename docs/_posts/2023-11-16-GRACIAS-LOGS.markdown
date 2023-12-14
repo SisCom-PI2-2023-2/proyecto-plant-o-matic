@@ -15,6 +15,7 @@ Luego de agregar println y varias horas de investigación, vimos que una de las 
 `Logs`
 
 ![Log1](/proyecto-plant-o-matic/assets/Log1.jpeg)
+
 ![Log2](/proyecto-plant-o-matic/assets/Log2.jpeg)
 
 
