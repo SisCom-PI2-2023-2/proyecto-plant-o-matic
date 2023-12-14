@@ -7,7 +7,7 @@ categories: posts
 
 `Martin pudo con los reles`
 
-![rele](/docs/assets/rele.jpeg)
+![rele](/proyecto-plant-o-matic/assets/rele.jpeg)
 
 <a href="https://youtu.be/gQaw36v5Qus">Video muestra reles</a>
 
