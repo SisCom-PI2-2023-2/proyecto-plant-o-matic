@@ -473,10 +473,8 @@ void loop() {
 }
 
 ```
-![Proto](/assets/Proto.jpg)
-![Proto1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Proto1.jpeg)
+![Proto](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/Fotos/Proto.png)
 
-![Proto1](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Proto2.jpeg)
 
 `Videito`
 
