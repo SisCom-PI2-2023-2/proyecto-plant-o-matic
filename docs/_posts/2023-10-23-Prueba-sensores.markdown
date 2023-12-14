@@ -54,6 +54,6 @@ delay(1000);
 
 ```
 
-![Pruebasensores](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Pruebasensores.jpg)
+![Pruebasensores](/proyecto-plant-o-matic/assets/Pruebasensores.jpg)
 
 https://www.youtube.com/shorts/7EKZ_7OAp7w
