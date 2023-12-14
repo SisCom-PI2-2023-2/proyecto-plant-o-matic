@@ -11,18 +11,18 @@ Octavio creó un usuario en Thingsboard Cloud para ir realizando pruebas.
 
 `Root`
 
-![Root](/proyecto-plant-o-matic/blob/assets/Root.jpg)
+![Root](/proyecto-plant-o-matic/assets/Root.jpg)
 
 `Temperatura`
 
-![Temperatura](/proyecto-plant-o-matic/blob/assets/Temperatura.jpg)
+![Temperatura](/proyecto-plant-o-matic/assets/Temperatura.jpg)
 
 Entra el dato, verifica que sea telemetria y luego revisa si es device "termometro".
 - No es, envia log "wrong device". Si es, toma el valor y resuelve la accion a tomar.
   
 `Humedad`
 
-![humedad](proyecto-plant-o-matic/assets/humedad.jpg)
+![humedad](/proyecto-plant-o-matic/assets/humedad.jpg)
 
 La logica es simimar a la de la temperatura pero cambian las acciones a tomar segun los parametros medidos.
 - GRACIAS! @octarevetria
