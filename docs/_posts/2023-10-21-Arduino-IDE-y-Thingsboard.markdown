@@ -6,7 +6,7 @@ categories: posts
 ---
 
 # Arduino IDE
-![IDE1](proyecto-plant-o-matic/assets/IDE1.jpg)
+![IDE1](/proyecto-plant-o-matic/assets/IDE1.jpg)
 
 Instalamos y configuramos el programa para gestionar la placa ESP8266. Fue necesario descargar varias librerias y encontrar el driver correcto.
 
@@ -19,8 +19,8 @@ No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard pod
 
   `Configuración prueba dispositivos`
 
-  ![Things1](proyecto-plant-o-matic/assets/Things1.jpg)
+  ![Things1](/proyecto-plant-o-matic/assets/Things1.jpg)
 
-  ![Things2](proyecto-plant-o-matic/assets/Things2.jpg)
+  ![Things2](/proyecto-plant-o-matic/assets/Things2.jpg)
 
-  ![Things3](proyecto-plant-o-matic/assets/Things3.jpg)
+  ![Things3](/proyecto-plant-o-matic/assets/Things3.jpg)
