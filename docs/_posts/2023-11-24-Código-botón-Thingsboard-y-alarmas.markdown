@@ -271,7 +271,7 @@ void loop() {
 ```
 `Alarmas`
 
-![Alarmas](/dosc/assets/Alarmas.jpeg)
+![Alarmas](/proyecto-plant-o-matic/assets/Alarmas.jpeg)
 
 
 
