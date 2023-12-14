@@ -5,7 +5,7 @@ date: 2023-11-09 12:00:00 -0300
 categories: posts
 ---
 # Funcionó el conversor
-![Conversor](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/Conversor.jpg)
+![Conversor](/proyecto-plant-o-matic/assets/Conversor.jpg)
 
 `Últimas versiones de código por esta semana`
 
@@ -399,4 +399,4 @@ void loop() {
 
 ```
 
-![ThingsRandom](https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/assets/ThingsRandom.jpg)
+![ThingsRandom](/proyecto-plant-o-matic/assets/ThingsRandom.jpg)
