@@ -28,7 +28,7 @@ categories: posts
 # ANOTHER PROBLEM   :/ !!
 
 - En en previw vemos perfecto las fotos que incluimos en los post, pero en la pagina la imagen aparece "rota".
-- 
+  
 ![Error1](/proyecto-plant-o-matic/assets/Error1.jpg)
 
 Pasó que para incluir la foto poniamos la URL de la imagen cargada en Github, pero la ruta que debemos usar es proyecto-plant-o-matic/assets/imagen.jpg porque el directorio raiz es proyecto-plant-o-matic
