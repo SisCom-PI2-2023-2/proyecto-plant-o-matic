@@ -7,6 +7,8 @@ categories: posts
 
 `Codigo`
 
+``` C++
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
@@ -536,6 +538,8 @@ void loop() {
 
 }
 
+```
+
 `Martin lo prueba pero sin buenos resultados :( `
 
-Videito
+<a href="https://youtu.be/8JCpvcTHoBs">Video de muestra</a>
