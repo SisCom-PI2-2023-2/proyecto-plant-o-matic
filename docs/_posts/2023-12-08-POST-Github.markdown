@@ -8,12 +8,32 @@ categories: posts
 `PROBLEM!!`
 
 - No podíamos realizar cambios, ni subir archivos en Github
+  
+  ![Error0](/proyecto-plant-o-matic/assets/Error0.jpg)
+  
 - Nos dimos cuenta de este error luego de tener varias acciones realizadas.
+
+  ![Error2](/proyecto-plant-o-matic/assets/Error2.jpg)
 
 - El problema fue que incluimos código con "error" en un Post, Github lo detectó y no dejó seguir realizando acciones.
 - Vale aclarar que el código estaba marcado como código (```c++ ... ```) 
+
+![Error](/proyecto-plant-o-matic/assets/Error.jpg)
+
+![Error1](/proyecto-plant-o-matic/assets/Error1.jpg)
+
+- Quedó resuelto el viernes 8 de diciembre
 - # Gracias @JP !! 
 
-![rele](/proyecto-plant-o-matic/assets/rele.jpeg)
+`ANOTHER PROBLEM   :/ !!`
 
-<a href="https://youtu.be/gQaw36v5Qus">Video muestra reles</a>
+- En en previw vemos perfecto las fotos que incluimos en los post, pero en la pagina la imagen aparece "rota".
+
+  ![Error1](/proyecto-plant-o-matic/assets/Error1.jpg)
+
+
+
+
+
+
+
