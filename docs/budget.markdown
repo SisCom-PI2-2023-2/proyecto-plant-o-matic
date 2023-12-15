@@ -4,19 +4,19 @@ title: Budget
 permalink: /budget/
 ---
 Bomba de Limpia Parabrisas
-![Bomba](/assets/Bomba.jpeg)
+![Bomba](/assets/Bomba.jpg)
 
 Fuente conmutada 12V 2A
-![Fuente](/assets/Fuente.jpeg)
+![Fuente](/assets/Fuente.jpg)
 
 DS18B20 Sensor de temperatura
-![SensorTemp](/assets/SensorTemp.jpeg)
+![SensorTemp](/assets/SensorTemp.jpg)
 
 MK0280 Sensor de humedad del suelo
-![Sensorhumedad](/assets/Sensorhumedad.jpeg)
+![Sensorhumedad](/assets/Sensorhumedad.jpg)
 
 Módulo NODEMCU V3 Esp8266 wifi MK0882
-![ESP8266](/assets/ESP8266.jpeg)
+![ESP8266](/assets/ESP8266.jpg)
 
 Ventiladores 40x40x10 DC 12v
-![Ventilador](/assets/Ventilador.jpeg)
+![Ventilador](/assets/Ventilador.jpg)
