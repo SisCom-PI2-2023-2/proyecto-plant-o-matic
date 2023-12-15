@@ -3,20 +3,20 @@ layout: page
 title: Budget
 permalink: /budget/
 ---
-Bomba de Limpia Parabrisas
+Dos Bomba de Limpia Parabrisas $290 c/u
 ![Bomba](/assets/Bomba.jpg)
 
-Fuente conmutada 12V 2A
+Una Fuente conmutada 12V 2A $633 c/u
 ![Fuente](/assets/Fuente.jpg)
 
-DS18B20 Sensor de temperatura
+Cinco DS18B20 Sensores de temperatura $240 c/u
 ![SensorTemp](/assets/SensorTemp.jpg)
 
-MK0280 Sensor de humedad del suelo
+Cinco MK0280 Sensores de humedad del suelo $86 c/u
 ![Sensorhumedad](/assets/Sensorhumedad.jpg)
 
-Módulo NODEMCU V3 Esp8266 wifi MK0882
+Un Módulo NODEMCU V3 Esp8266 wifi MK0882 $496 c/u
 ![ESP8266](/assets/ESP8266.jpg)
 
-Ventiladores 40x40x10 DC 12v
+Dos Ventiladores 40x40x10 DC 12v $160 c/u
 ![Ventilador](/assets/Ventilador.jpg)
