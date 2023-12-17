@@ -53,6 +53,7 @@ El propósito de esta prueba es establecer la comunicación entre los sensores y
 
 Los materiales utilizados fueron:
    * DS18B20 Sensor de temperatura
+   * MK0280 Sensor de humedad
    * Módulo NODEMCU V3 Esp8266 wifi MK0882
    * Protoboard
      
