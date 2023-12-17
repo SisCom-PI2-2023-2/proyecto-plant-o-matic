@@ -49,7 +49,7 @@ El objetivo es incorporar las mediciones de los sensores que recibe la placa a T
 A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el porque.
 
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
-El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266.
+El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. En el transcurso de la prueba decidimos ahondar un poco más y sumamos como objetivo visualizar lo sensado en la plataforma. 
 
 Los materiales utilizados fueron:
    * DS18B20 Sensor de temperatura
@@ -63,8 +63,10 @@ Referencias o guías de los componentes que necesitamos:
 El código utilizado y el video de los resultados de esta prueba se pueden encontrar en los detalles de nuestra bitácora, debajo pueden encontrar un enlace a la misma. 
 <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Log de nuestra bitácora</a>
 
-La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. 
+La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. Una vez incorporado el convertidor A/D con ayuda de un panel gráfico predeterminado probamos la visualización de los valores en ThingsBoard. Este ensayo también fue satisfactorio.
 
+##### Concepto 2: Prueba de rule chains de ThingsBoard
+El cometido de esta prueba es comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y diseñar una rule chain que se adecuará con la lógica de nuestra solución.
 
 ##### Prueba de boton toggle
 ##### Fotos y descripción
