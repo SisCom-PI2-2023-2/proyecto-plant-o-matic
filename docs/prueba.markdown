@@ -54,6 +54,7 @@ Los materiales utilizados fueron:
    * DS18B20 Sensor de temperatura
    * MK0280 Sensor de humedad
    * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Convertidor ADS1115
    * Protoboard
    
 Referencias o guías de los componentes que necesitamos:
