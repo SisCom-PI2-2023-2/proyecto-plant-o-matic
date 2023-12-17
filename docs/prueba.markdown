@@ -54,7 +54,8 @@ Los materiales utilizados fueron:
    * DS18B20 Sensor de temperatura
    * MK0280 Sensor de humedad
    * Módulo NODEMCU V3 Esp8266 wifi MK0882
-   * Protoboard     
+   * Protoboard
+   
 Referencias o guías de los componentes que necesitamos:
    * <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf">Datasheet DS18B20</a>
    * <a href="https://www.researchgate.net/profile/Mohamed-Fezari-2/publication/328265730_NodeMCU_V3_For_Fast_IoT_Application_Development/links/5bc1f82b458515a7a9e71ac1/NodeMCU-V3-For-Fast-IoT-Application-Development.pdf">Guía ESP8266</a>
