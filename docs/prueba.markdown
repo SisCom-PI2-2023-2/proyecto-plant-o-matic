@@ -46,10 +46,13 @@ El objetivo es incorporar las mediciones de los sensores que recibe la placa a T
 ##### Prototipo final
 
 ### Experimentos
+A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el porque.
 
-Explicar con bitacora e imagenes
+##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
+El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. 
 
-#### Prueba de boton toggle
+
+##### Prueba de boton toggle
 ##### Fotos y descripción
 ##### Items de la prueba, hardware y software
 ##### Debe incluir datasheets y especificaciones de sensores y componentes
