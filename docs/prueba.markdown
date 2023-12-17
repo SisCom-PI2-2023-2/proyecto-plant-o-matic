@@ -63,14 +63,20 @@ Referencias o guías de los componentes que necesitamos:
    * <a href="https://components101.com/modules/soil-moisture-sensor-module">Guía sensor de humedad</a>
    * <a href="https://cdn-shop.adafruit.com/datasheets/ads1115.pdf">Datasheet ADS1115</a>
    
+La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. Una vez incorporado el convertidor A/D con ayuda de un panel gráfico predeterminado probamos la visualización de los valores en ThingsBoard. Este ensayo también fue satisfactorio.
 
 El código utilizado y el video de los resultados de esta prueba se pueden encontrar en los detalles de nuestra bitácora, a continuación pueden encontrar un enlace a la misma. 
 <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Log de nuestra bitácora</a>
 
-La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. Una vez incorporado el convertidor A/D con ayuda de un panel gráfico predeterminado probamos la visualización de los valores en ThingsBoard. Este ensayo también fue satisfactorio.
-
 ##### Concepto 2: Prueba de rule chains de ThingsBoard
 El cometido de esta prueba es comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y diseñar una rule chain que se adecuará con la lógica de nuestra solución.
+Toda la prueba fue desarrollada dentro de la plataforma ThingsBoard.
+
+Como guía y referencia para poder avanzar con las pruebas utilizamos:
+   * <a href="https://thingsboard.io/docs/user-guide/rule-engine-2-0/re-getting-started/">Intro de Rule Engines</a>
+   * <a href="https://thingsboard.io/docs/reference/mqtt-api/">Guía para MQTT de ThingsBoard</a>
+   * <a href="https://thingsboard.io/docs/user-guide/ui/rule-chains/">Guía para Rule Chains</a>
+
 
 ##### Prueba de boton toggle
 ##### Fotos y descripción
