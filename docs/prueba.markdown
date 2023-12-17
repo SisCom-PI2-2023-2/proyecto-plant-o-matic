@@ -51,6 +51,8 @@ A continuación, analizaremos en detalle los distintos experimentos y evaluacion
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
 El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. 
 
+<a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Link</a>
+
 
 ##### Prueba de boton toggle
 ##### Fotos y descripción
