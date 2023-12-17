@@ -49,9 +49,21 @@ El objetivo es incorporar las mediciones de los sensores que recibe la placa a T
 A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el porque.
 
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
-El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. 
+El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266.
 
-<a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Link</a>
+Los materiales utilizados fueron:
+   * DS18B20 Sensor de temperatura
+   * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Protoboard
+     
+Referencias o guías de los componentes que necesitamos:
+   * <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf">Datasheet DS18B20</a>
+   * <a href="https://www.researchgate.net/profile/Mohamed-Fezari-2/publication/328265730_NodeMCU_V3_For_Fast_IoT_Application_Development/links/5bc1f82b458515a7a9e71ac1/NodeMCU-V3-For-Fast-IoT-Application-Development.pdf">Guía ESP8266</a>
+
+El código utilizado y el video de los resultados de esta prueba se pueden encontrar en los detalles de nuestra bitácora, debajo pueden encontrar un enlace a la misma. 
+<a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Log de nuestra bitácora</a>
+
+La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. 
 
 
 ##### Prueba de boton toggle
