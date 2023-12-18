@@ -228,6 +228,8 @@ void loop() {
 }
 
 ```
+Pudimos a su vez envíar comandos RPC desde Knob Control, a una computadora asistida por el programa MQTTX
+![MQTTX](/proyecto-plant-o-matic/assets/mqtt_test.png)
 
 ![KnobControl](/proyecto-plant-o-matic/assets/KnobControl.jpeg)
 
