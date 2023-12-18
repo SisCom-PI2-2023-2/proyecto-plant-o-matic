@@ -24,6 +24,7 @@ private:
     std::string plantaActual;
     std::map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> datosDePlantas;
 
+//*CÓDIGO QUE DA ERROR
 
 public:
     Auxiliar(const std::string& planta) {
@@ -532,7 +533,9 @@ void loop() {
 }
 
 ```
-
+- Sacamos el código que veremos a contuniacion porque a si bien compila a Github no le gusta. Va en //*CÓDIGO QUE DA ERROR
+  
+![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
 
 `Martín lo prueba, pero sin buenos resultados :( `
 
