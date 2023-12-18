@@ -11,7 +11,7 @@ categories: posts
 
 `Arduino IDE`
 
-- Tratamos de crear y compilar un mejor código para la union entre hardware con thingsboard.
+- Tratamos de crear y compilar un mejor código para la unión entre hardware con thingsboard.
 
 ```c++
 
