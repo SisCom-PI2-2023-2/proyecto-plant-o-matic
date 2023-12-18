@@ -77,6 +77,17 @@ Como guía y referencia para poder avanzar con las pruebas utilizamos:
    * <a href="https://thingsboard.io/docs/reference/mqtt-api/">Guía para MQTT de ThingsBoard</a>
    * <a href="https://thingsboard.io/docs/user-guide/ui/rule-chains/">Guía para Rule Chains</a>
 
+En esta evaluación, comenzamos desde la cadena raíz original y optamos por incorporar un salto a una cadena nueva cuando el mensaje recibido fuera una telemetría. Iniciamos con la cadena de sensado de temperatura y humedad porque era la lógica con la que estábamos más familiarizados. Realizamos todos los tests con los comandos -curl en consola y con el debug de la rule chain. Esta prueba no fue exitosa, el desarrollo de la misma se extendió más de lo esperado. Y no logramos incorporar alarmas en la rule chain. El fracaso de esta prueba se debió a varios factores:
+   * Desconocimiento de la plataforma
+   * Solo se realizaron pruebas en la plataforma
+   * No se realizó la lógica de manera modular
+   * No se realizó un esquema con los distintas interacciones entre la placa y la plataforma
+   * Concentrarse demasiado en los perfiles y dispositivos
+
+Desde el principio, habría sido ventajoso considerar todas las posibles interacciones entre la placa y la plataforma. Es decir, identificar cuándo era necesario enviar un mensaje MQTT del tipo RPC, cuándo una Telemetría y cuándo un Atributo. Definir qué enviaría la placa o la plataforma y qué tipo de mensaje se esperaría. Con toda esta información disponible, la elección de bloques para la lógica hubiera sido mucho más adecuada. A su vez, la realización de toda la lógica en la plataforma sin validación por fuera del debug y ping de dispositivos, dificulto mucho a la hora de intentar unificar la cadena con las señales reales de la solución.
+Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a la división y comprensión de las herramientas necesarias de la solución. Centrandonos en los roles de la placa y la plataforma en cada uno de los estados de la lógica del problema.
+
+Las capturas de las cadenas diseñadas para la prueba de concepto son parte de nuestra bitácora, como podrán ver en el enlace. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/18/ThingsBoard-Rule-chains.html">Log de nuestra bitácora</a>
 
 ##### Prueba de boton toggle
 ##### Fotos y descripción
