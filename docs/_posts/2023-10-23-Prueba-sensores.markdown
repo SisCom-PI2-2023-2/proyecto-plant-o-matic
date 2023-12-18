@@ -56,6 +56,6 @@ delay(1000);
 
 ![Pruebasensores](/proyecto-plant-o-matic/assets/Pruebasensores.jpg)
 
-<a href="https://www.youtube.com/shorts/7EKZ_7OAp7w">Videoito</a>
+<a href="https://www.youtube.com/shorts/7EKZ_7OAp7w">Videito</a>
 
 
