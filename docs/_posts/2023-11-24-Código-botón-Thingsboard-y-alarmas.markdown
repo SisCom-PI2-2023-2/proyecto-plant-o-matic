@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Código boton y Alarmas"
+title: "Código botón y Alarmas"
 date: 2023-11-18 16:00:00 -0300
 categories: posts
 ---
