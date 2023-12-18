@@ -534,8 +534,6 @@ void loop() {
 ```
 
 
-`Martin lo prueba pero sin buenos resultados :( `
+`Martín lo prueba, pero sin buenos resultados :( `
 
-https://youtu.be/qYOMbJHAKLQ
-
-<a href="https://youtu.be/8JCpvcTHoBs">Video de muestra</a>
+<a href="https://youtu.be/qYOMbJHAKLQ">Video de muestra</a>
