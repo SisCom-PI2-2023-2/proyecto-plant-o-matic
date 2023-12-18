@@ -92,6 +92,9 @@ Las capturas de las cadenas diseñadas para la prueba de concepto son parte de n
 ##### Concepto 3: Prueba de comandos RPC envíados desde ThingsBoard
 La siguiente prueba conceptual implicó simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia la placa, solo que el programa MQTTX simularía el rol de la placa.
 
+<a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/_posts/2023-11-11-Pudimos-enviarle-al-Knob-Control.markdown">Captura de las pruebas en MQTTX</a>
+
+
 
 
 ##### Prueba de boton toggle
