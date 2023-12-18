@@ -640,3 +640,18 @@ void loop() {
 
 `Video de como funciona el sistema en automático y/o manual del ventilador`
 
+https://youtu.be/wq0WzJoUVjo
+
+`Bomba en modo manual`
+
+https://youtube.com/shorts/Y4n8E_QKA9E?feature=share
+
+`Probamos la bomba`
+
+imagen ojoo
+
+
+![Todo_circuito](proyecto-plant-0-matic/assets/Todo_ci)
+
+
+
