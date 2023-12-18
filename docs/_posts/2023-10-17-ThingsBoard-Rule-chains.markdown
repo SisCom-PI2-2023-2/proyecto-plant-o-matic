@@ -24,6 +24,6 @@ Entra el dato, verifica que sea telemetria y luego revisa si es device "termomet
 
 ![humedad](/proyecto-plant-o-matic/assets/humedad.jpg)
 
-La logica es simimar a la de la temperatura pero cambian las acciones a tomar segun los parametros medidos.
+La lógica es simimar a la de la temperatura pero cambian las acciones a tomar según los parámetros medidos.
 - GRACIAS! @octarevetria
 
