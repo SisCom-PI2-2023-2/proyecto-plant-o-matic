@@ -5,7 +5,7 @@ date: 2023-11-11 21:00:00 -0300
 categories: posts
 ---
 
-`Codifo de envio a Knob Control`
+`Código de envío a Knob Control`
 
 ```c++
 
