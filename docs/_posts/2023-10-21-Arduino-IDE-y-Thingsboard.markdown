@@ -8,11 +8,11 @@ categories: posts
 # Arduino IDE
 ![IDE1](/proyecto-plant-o-matic/assets/IDE1.jpg)
 
-Instalamos y configuramos el programa para gestionar la placa ESP8266. Fue necesario descargar varias librerias y encontrar el driver correcto.
+Instalamos y configuramos el programa para gestionar la placa ESP8266. Fue necesario descargar varias librerías y encontrar el driver correcto.
 
 # Thingsboard
 
-Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opcion Claud. Ademas Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opción Demo no.
+Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opción Claud. Además Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opción Demo no.
 No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard podemos exportar e importar.
 
 - Usuario Thingsboard Demo : martinfajardodargenio@hotmail.com
