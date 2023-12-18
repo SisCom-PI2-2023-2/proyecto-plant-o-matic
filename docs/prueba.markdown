@@ -92,10 +92,10 @@ Las capturas de las cadenas diseñadas para la prueba de concepto son parte de n
 ##### Concepto 3: Prueba de comandos RPC envíados desde ThingsBoard
 La siguiente prueba conceptual implicó simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia la placa, solo que el programa MQTTX simularía el rol de la placa. Con ayuda del widget "Knob Control" del panel gráfico de ThingsBoard pudimos definir funciones RPC para entender su funcionamiento y como interactuarían con las variables definidas en la placa. Planteamos una función para operar una variable booleana, como puede ser el estado de un LED. 
 
-La prueba fue exitosa, ya que pudimos validar que el envío de ThingsBoard era correcto, permitiendonos poner toda nuestra atención en la recepción de la placa. En el enlace a la bitácora se podrá ver en la penúltima imagen, una captura de una parte de lo probado. 
+La prueba fue exitosa, ya que pudimos validar que el envío de ThingsBoard era correcto, permitiendonos poner toda nuestra atención en la recepción de la placa. Los conocimientos que nos brindó esta práctica fueron, comprensión del formato de MQTT con Header fijo o variable y procedimiento de request y response de MQTT. En el enlace a la bitácora se podrá ver en la penúltima imagen, una captura de una parte de lo probado. 
 <a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/_posts/2023-11-11-Pudimos-enviarle-al-Knob-Control.markdown">Captura de las pruebas en MQTTX</a>
 
-##### Concepto 3: Prueba de integración de telemetrías de los sensores en ThingsBoard
+##### Concepto 4: Prueba de integración de telemetrías de los sensores en ThingsBoard
 
 
 ##### Prueba de boton toggle
