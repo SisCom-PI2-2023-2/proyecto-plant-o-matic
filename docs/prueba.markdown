@@ -89,6 +89,11 @@ Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a
 
 Las capturas de las cadenas diseñadas para la prueba de concepto son parte de nuestra bitácora, como podrán ver en el enlace. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/18/ThingsBoard-Rule-chains.html">Prueba de Rulechains - Bitácora</a>
 
+##### Concepto 3: Prueba de comandos RPC envíados desde ThingsBoard
+La siguiente prueba conceptual implicó simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia la placa, solo que el programa MQTTX simularía el rol de la placa.
+
+
+
 ##### Prueba de boton toggle
 ##### Fotos y descripción
 ##### Items de la prueba, hardware y software
