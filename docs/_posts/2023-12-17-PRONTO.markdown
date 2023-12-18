@@ -640,18 +640,21 @@ void loop() {
 
 `Video de como funciona el sistema en automático y/o manual del ventilador`
 
-https://youtu.be/wq0WzJoUVjo
+<a href="https://youtu.be/wq0WzJoUVjo">Video ventilador</a>
 
 `Bomba en modo manual`
 
-https://youtube.com/shorts/Y4n8E_QKA9E?feature=share
+<a href="https://youtube.com/shorts/Y4n8E_QKA9E?feature=share">Video bomba</a>
 
 `Probamos la bomba`
 
-imagen ojoo
+![Ojoo!](/proyecto-plant-o-matic/assets/Ojoo!.jpg)
 
+<a href="https://youtube.com/shorts/i4osGTkvNvA?feature=share">Video todo mojado :0 </a>
 
-![Todo_circuito](proyecto-plant-0-matic/assets/Todo_ci)
+`Pronto`
+
+![Todo_conectado](/proyecto-plant-o-matic/assets/Todo_conectado.jpg)
 
 
 
