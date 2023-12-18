@@ -9,7 +9,7 @@ categories: posts
 
 `Últimas versiones de código por esta semana`
 
-Queremos enviar dato al ..... de things, pero no lo hemos logrado
+Queremos enviar dato al Knob Control de Thingsboard, pero no lo hemos logrado
 
 ```c++
 
