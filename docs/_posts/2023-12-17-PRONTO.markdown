@@ -637,3 +637,6 @@ void loop() {
 }
 
 ```
+
+`Video de como funciona el sistema en automático y/o manual del ventilador`
+
