@@ -22,7 +22,7 @@ categories: posts
 
 ![Error1](/proyecto-plant-o-matic/assets/Error1.jpg)
 
-- Quedó resuelto el viernes 8 de diciembre. -
+- Quedó resuelto el viernes 8 de diciembre.
 - Gracias @JP !! 
 
 # ANOTHER PROBLEM   :/ !!
