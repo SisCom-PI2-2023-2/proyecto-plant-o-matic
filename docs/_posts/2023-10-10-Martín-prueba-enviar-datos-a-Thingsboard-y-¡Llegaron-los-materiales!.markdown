@@ -13,7 +13,7 @@ Define un dispositivo y le pone las credenciales
 
 ![EnvíoThings1](/proyecto-plant-o-matic/assets/EnvíoThings1.jpg)
 
-Lo importante es el else, que se define el json con el dispositivo que hayamos creado, en este caso "temperature
+Lo importante es el else, que se define el json con el dispositivo que hayamos creado, en este caso "temperature"
 
 ![EnvíoThings3](/proyecto-plant-o-matic/assets/EnvíoThings3.jpg)
 
@@ -21,7 +21,7 @@ La placa que se usó para estas pruebas no carga las librerias de Thingsboard, p
 
 ![EnvíoThings2](/proyecto-plant-o-matic/assets/EnvíoThings2.jpg)
 
- https://youtube.com/shorts/e0aFwL-xqUc?feature=share
+<a href="https://youtube.com/shorts/e0aFwL-xqUc?feature=share">Video muestra</a>
 
 # Materiales
 
