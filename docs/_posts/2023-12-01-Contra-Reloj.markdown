@@ -6,8 +6,8 @@ categories: posts
 ---
 
 
-Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, pero tuvimos mas dificultades de las pensadas.
-  -  El último código (última clase) no nos compilaba, asi que seguimos con el "de Martín"
+Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, pero tuvimos más dificultades de las pensadas.
+  -  El último código (última clase) no nos compilaba, así que seguimos con el "de Martín"
   -  Obtenemos mensajes comunicando que no encuentra el ads
    
 `Prototipo Maqueta :0 `
