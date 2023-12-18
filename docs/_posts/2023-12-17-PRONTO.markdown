@@ -23,7 +23,7 @@ private:
     std::string plantaActual;
     std::map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> datosDePlantas;
 
-//*A GITHUB NO LE GUSTA
+//*CÓDIGO QUE DA ERROR
 
 public:
     Auxiliar(const std::string& planta) {
@@ -631,7 +631,10 @@ void loop() {
 }
 
 ```
-![Nolegusta](/proyecto-plant-o-matic/assets/Nolegusta.jpg)
+- Sacamos el código que veremos a contuniacion porque a si bien compila a Github no le gusta. Va en //*CÓDIGO QUE DA ERROR
+  
+![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
+
 `Video de como funciona el sistema en automático y/o manual del ventilador`
 
 <a href="https://youtu.be/wq0WzJoUVjo">Video ventilador</a>
