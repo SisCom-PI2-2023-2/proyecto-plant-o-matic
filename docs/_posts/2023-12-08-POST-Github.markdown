@@ -27,7 +27,7 @@ categories: posts
 
 # ANOTHER PROBLEM   :/ !!
 
-- En previw vemos perfecto las fotos que incluimos en los post, pero en la pagina la imagen aparece "rota".
+- En preview vemos perfecto las fotos que incluimos en los post, pero en la página la imagen aparece "rota".
 
 ![Error000](/proyecto-plant-o-matic/assets/Error000.jpg)  
 
