@@ -131,10 +131,38 @@ Los componentes que necesitamos fueron:
 
 La prueba tuvo resultados de acuerdo a nuestras expectativas. Primero decidimos poner el ventilador en modo manual, y su funcionamiento fue tal como anticipábamos. Después, al elevar la temperatura del sensor a 25 grados Celsius con calor corporal, conseguimos activar el ventilador de manera automática. Posteriormente, al enfriarlo con una barra congelada, logramos reducirlo a 23 grados, lo que ocasionó el apagado automático del ventilador. Esta prueba nos permitió unificar varias de la partes del proyecto que fueron hechas por separado. Esto nos sirvió mucho de cara al armado de la solución final y la maqueta. El video del ensayo con el prototipo puede encontrarse como "video ventilador" en la bitácora. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/12/18/PRONTO.html">Prototipo de accionado</a>
 
-### Demo o Exposición de la solución
+### Demostración de la solución
+Ensayo de la presentación completa de la solución con todas las partes correspondientes.
+
+Los materiales que utilizamos fueron:
+   * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Ventilador de 12V
+   * Bomba limpia parabrisas de 12V
+   * Manguera
+   * Maceta de tierra
+   * Fuente de 12V de 2A
+   * Transistor NPN P2N2222A
+   * 2x DS18B20 Sensor de temperatura
+   * 2x MK0280 Sensor de humedad
+   * Resistencia de 1K ohm
+   * Convertidor ADS1115
+   * 2x Réle AX1RC-5V
+   * Protoboard
+   * Jumpers
+   * Barra congelada
+
+En la demostración implementamos los perfiles de plantas para customizar los activados automáticos de los actuadores:
+   * Rosa - Temperatura/Humedad: [15,29]/[40,70]
+   * Cactus - Temperatura/Humedad: [20,35]/[10,30]
+   * Helecho - Temperatura/Humedad: [18,35]/[60,80]
+   * Orquídea - Temperatura/Humedad: [16,35]/[55,75]
+
+
 
 
 ### Conclusión
 Con respecto a lo planteado en el anteproyecto, se pudo alcanzar lo propuesto para el MVP exceptuando el uso de APIs para la obtención de valores óptimos. Como alternativa diseñamos una variedad de perfiles de plantas con los valores optimos sugeridos ya cargados en la placa para poder operar los actuadores de manera acorde. Con respecto a la solución Estándar, entendemos que con más tiempo y mejores conocimientos previos de la plataforma podríamos haber incorporado el uso de APIs. Para la versión Premium, nos vimos limitados por el costo y dificultad de medición de las magnitudes elegidas. En particular, medir la conductividad del suelo requiere de un ensayo extenso y poco integrable a nuestro sistema. Por su complejidad decidimos descartar las mediciones de conductividad y PH. En relación a posibles mejoras en la solución final, creemos que existe margen para ampliar nuestra maqueta. La bomba de 12V de agua cuenta con caudal suficiente para regar decenas de cultivos pequeños. Por otro lado, una vez implementados los perfiles de plantas, nos dimos cuenta que pudimos haber dejado un rango personalizable para el usuario, donde él elige la temperatura a partir de la cual accionar de manera autmática. Ya que, no todas las plantas pueden quedar contempladas dentro de los perfiles. Finalmente, como mencionamos en la sección "experimentos", si tuviéramos la oportunidad de empezar de nuevo, abordaríamos las funcionalidades de ThingsBoard de manera más modular. Esta plataforma posee numerosas capacidades que pueden motivarnos a probar varias cosas simultáneamente y complicar aún más la resolución del problema. La integración de los documentos de casos de uso y guía en nuestro proceso de diseño es algo que debimos haber hecho desde el primer día que comenzamos con el proyecto.
-#### Enlace al código final en GitHub
+
+### Enlace al código final en GitHub
+<a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/c%C3%B3digos/c%C3%B3digo_final">Repositorio del código para el proyecto</a>
 
