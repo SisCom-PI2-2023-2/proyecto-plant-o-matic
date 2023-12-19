@@ -43,7 +43,7 @@ El objetivo es incorporar las mediciones de los sensores que recibe la placa a u
 ##### Prueba para accionadores
 Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. Que luego será integrado al prototipo final del proyecto. Nuestro objetivo es poder activarlos de manera manual y remota. Y para eso necesitamos adecuar la tensión de control a los valores necesarios. Lo posibles problemas que pueden presentarse son: falta de corriente para la bomba de agua y manejo de los retardos para el correcto funcionamiento de la solución.
 
-##### Prototipo de dashboard con accionado manual
+##### Prototipo de Dashboard con accionado manual y automático
 
 ### Experimentos
 A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el por qué.
@@ -104,7 +104,7 @@ Los componentes que necesitamos fueron:
    * Ventilador de 12V
    * Fuente de 5V de 2A
    * Transistor NPN P2N2222A
-   * Resistencia de 1K ohm
+   * Resistencia de 1K ohm. 
    * Réle AX1RC-5V
    * Protoboard
 
@@ -115,8 +115,8 @@ Hojas de datos e información de referencia de algunos de los componentes:
 
 Al realizar la prueba, aun no contabamos con una fuente de 12V con corriente suficiente para la bomba de agua. Entonces decidimos probar con una de 5V que teníamos a disposición que para el ventilador era más que suficiente. Diseñamos el circuito de manera de amplificar nuestra corriente de salida de la placa al valor necesario por los accionadores, utilizamos el transistor para alcanzar dicha corriente y asi conectar/desconectar la bobina dentro del réle. Logramos lo que buscabamos con un código que alternaba entre encendido y apagado. El ventilador efectivamente se apagaba y prendía acorde a lo programado. Video y código de la prueba: <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/11/18/Prueba_bombas_y_ventiladores_MARTIN.html">Prueba accionadores</a>
 
-##### Prototipo 1: Dashboard con accionado manual
-
+##### Prototipo 1: Dashboard con accionado manual y automático
+El objetivo de esta prueba es accionar un actuador desde el dashboard, intercalando entre modo manual y automático. Este prototipo comprende una parte importante de nuestra solución final. Que 
 
 ### Demo o Exposición de la solución
 
