@@ -11,8 +11,8 @@ Esta semana hicimos un simulacro de maqueta para empezar con pruebas reales, per
   -  Obtenemos mensajes comunicando que no encuentra el ads
 
 Para colocar los sensores tuvimos en cuenta las indicaciones del agricultor Ricardo Masculiatte.
-    - Es importante tomar la temperatura a unos 30 cm de la superficie y sobre la misma
-    - La humedad se mide en donde terminan las raíces de la planta.
+  - Es importante tomar la temperatura a unos 30 cm de la superficie y sobre la misma
+  - La humedad se mide en donde terminan las raíces de la planta.
    
 `Prototipo Maqueta :0 `
 
