@@ -1,654 +1,126 @@
 ---
-layout: post
-title: "PRONTO"
-date: 2023-12-17 23:30:00 -0300
-categories: posts
+layout: page
+title: Resumen del Proyecto
+permalink: /resumen/
 ---
 
-`Código`
-
-``` C++
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <ArduinoJson.h>
-#include <DallasTemperature.h>
-#include <Wire.h>
-#include <Adafruit_ADS1X15.h>
-#include <map>
-#include <string>
-
-
-class Auxiliar {
-private:
-    std::string plantaActual;
-    std::map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> datosDePlantas;
-
-//*CÓDIGO QUE DA ERROR
-
-public:
-    Auxiliar(const std::string& planta) {
-        inicializarDatosDePlantas();
-        auto it = datosDePlantas.find(planta);
-        if (it != datosDePlantas.end()) {
-            plantaActual = planta;
-        } else {
-            Serial.println("Planta desconocida");
-            plantaActual = "DefaultPlant";
-        }
-    }
-
-    std::array<int, 4> getPlantThresholds() {
-        auto rango = datosDePlantas[plantaActual];
-        return {rango.first.first, rango.first.second, rango.second.first, rango.second.second};
-    }
-
-    bool esTemperaturaAdecuada(int temp) {
-        auto rango = datosDePlantas[plantaActual].first;
-        return temp >= rango.first && temp <= rango.second;
-    }
-
-    bool esHumedadAdecuada(int humedad) {
-        auto rango = datosDePlantas[plantaActual].second;
-        return humedad >= rango.first && humedad <= rango.second;
-    }
-
-    void cambiarPlanta(const std::string& nuevaPlanta) {
-        auto it = datosDePlantas.find(nuevaPlanta);
-        if (it != datosDePlantas.end()) {
-            plantaActual = nuevaPlanta;
-        } else {
-            Serial.println("Planta desconocida");
-            plantaActual = "DefaultPlant";
-        }
-    }
-    std::string getPlantaActual() const {
-        return plantaActual;
-    }
-};
-
-unsigned long lastTemperatureSignalTime = 0;
-unsigned long lastHumiditySignalTime = 0;
-const unsigned long signalInterval = 1200000; // 20 minutes in milliseconds
-const unsigned long humiditySignalDuration = 5000; // 5 seconds in milliseconds
-bool fanState = false;
-bool bombState = false;
-bool Automatico = false;
-unsigned long previousMillis = 0;
-int tiempo_encendido = 0;
-float volumenTotal = 0;
-
-// Crear una version de la clase
-Auxiliar miPlanta("Rosa");
-
-// Update these with values suitable for your network.
-const char* ssid = "Manuel-5GHz";
-const char* password = "26831706";
-const char* mqtt_server = "demo.thingsboard.io"; //"104.196.24.70";
-const char* token = "yxBvaTo366CtIrbS4ZDI";
-// {clientId:"rbp222y1d1717mqq2jdr",userName:"martin",password:"123456"}
-
-// Temperature objects
-OneWire temperatura(2);
-DallasTemperature sensores(&temperatura);
-
-//Analogic objects
-Adafruit_ADS1115 ads;
-
-// Connection objects
-WiFiClient espClient;
-PubSubClient mqttClient(espClient);
-
-//timestamp of the last telemetry update
-unsigned long lastMsg = 0;
-
-//buffer sizes and messages
-#define MSG_BUFFER_SIZE  (50)
-char msg[MSG_BUFFER_SIZE];
-char msg2[MSG_BUFFER_SIZE];
-
-//json document to store incoming messages
-DynamicJsonDocument incoming_message(256);
-
-//Fake telemetry
-int value = 0;
-
-//Led state
-boolean estado = false;
-
-void onFan(bool estadofan) {
-  if (!fanState && estadofan) {
-    digitalWrite(15, HIGH); // Turn on the fan
-    fanState = true;
-    Serial.println("Fan turned ON");
-  }else {
-    if (fanState && !estadofan) {
-      digitalWrite(15, LOW); // Turn off the fan
-      fanState = false;
-      Serial.println("Fan turned OFF");
-    }
-  }
-  DynamicJsonDocument resp(256);
-        
-  resp["estado_fan"] = fanState;
-  char buffer2[256];
-  serializeJson(resp, buffer2);
-  resp["ventilador"] = fanState;
-  serializeJson(resp, buffer2);
-  mqttClient.publish("v1/devices/me/attributes", buffer2);
-  Serial.print("Publish message [attribute]: ");
-  Serial.println(buffer2);
-}
-
-void onBomba(bool estadobomba) {
-  if (!bombState && estadobomba) {
-    digitalWrite(14, HIGH); // Turn on the fan
-    bombState = true;
-    Serial.println("Bomb turned ON");
-  }else {
-    if (bombState && !estadobomba) {
-      digitalWrite(14, LOW); // Turn off the fan
-      bombState = false;
-      Serial.println("Bomb turned OFF");
-    }
-  }
-  DynamicJsonDocument resp(256);
-        
-  resp["estado"] = bombState;
-  char buffer2[256];
-  serializeJson(resp, buffer2);
-  resp["bombaDeAgua"] = bombState;
-  serializeJson(resp, buffer2);
-  mqttClient.publish("v1/devices/me/attributes", buffer2);
-  Serial.print("Publish message [attribute]: ");
-  Serial.println(buffer2);
-}
-
-//Initiates WiFi Connection
-void setup_wifi() {
-
-  delay(10);
-  // We start by connecting to a WiFi network
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  randomSeed(micros());
-
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
-}
-
-//This method is called whenever a MQTT message arrives. We must be prepared for any type of incoming message.
-//We are subscribed to RPC Calls: v1/devices/me/rpc/request/+
-void callback(char* topic, byte* payload, unsigned int length) {
-  
-  //log to console
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }
-  Serial.println();
-
-  //convert topic to string to parse
-  String _topic = String(topic);
-  
-  if (_topic.startsWith("v1/devices/me/rpc/request/")) {
-    //We are in a request, check request number
-    String _number = _topic.substring(26);
-
-    //Read JSON Object
-    deserializeJson(incoming_message, payload);
-    String metodo = incoming_message["method"];
-    
-    if (metodo=="checkStatus") {  //Check device status. Expects a response to the same topic number with status=true.
-      
-      char outTopic[128];
-      ("v1/devices/me/rpc/response/"+_number).toCharArray(outTopic,128);
-      
-      DynamicJsonDocument resp(256);
-      resp["status"] = true;
-      char buffer[256];
-      serializeJson(resp, buffer);
-      mqttClient.publish(outTopic, buffer);
-      Serial.println(buffer);
-    }
-    if (metodo == "getValue") {
-        /*sensores.requestTemperatures(); // Request temperatures
-        int temp1 = sensores.getTempCByIndex(0); // Sensor 1
-        String dataJS = "{\"Temperatura 1\":" + String(temp1, 3) + "}";
-        char json[100];
-        dataJS.toCharArray(json, dataJS.length() + 1);
-        mqttClient.publish("v1/devices/me/telemetry", json);*/
-      //char json[100];
-      //dataJS.toCharArray(json, dataJS.length() + 1);
-      char outTopic[128];
-      ("v1/devices/me/rpc/response/" + _number).toCharArray(outTopic,128);
-      DynamicJsonDocument resp(256);
-      resp["params"] = "true";
-      char buffer[256];
-      serializeJson(resp, buffer);
-
-
-    } else if (metodo == "getTemperature2") { //ESTO NO CREO QUE SE USE
-        sensores.requestTemperatures(); // Request temperatures
-        int temp2 = sensores.getTempCByIndex(1); // Assuming Sensor 2
-        String dataJS = "{\"Temperatura 2\":" + String(temp2, 3) + "}";
-        char json[100];
-        dataJS.toCharArray(json, dataJS.length() + 1);
-        char outTopic[128];
-        ("v1/devices/me/rpc/response/" + _number).toCharArray(outTopic,128);
-        DynamicJsonDocument resp(256);
-        resp["value"] = temp2;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        temp2 = 20;
-        String salida = (String) temp2;
-        mqttClient.publish(outTopic, salida.c_str());
-        Serial.println(outTopic);
-        Serial.println(buffer);
-
-    } else if (metodo == "setValueBomba") {
-        bool estado = incoming_message["params"];
-        if (estado) {
-          onBomba(estado);
-          
-        } else {
-          onBomba(estado);
-          
-        }
-        // Attribute update
-        DynamicJsonDocument resp(256);
-        resp["estado"] = estado;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        resp["bombaDeAgua"] = estado;
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.print("Publish message [attribute]: ");
-        Serial.println(buffer);
-    }
-    else if (metodo == "setValueFan") {
-        bool estado_fan = incoming_message["params"];
-        if (estado_fan) {
-            onFan(estado_fan);
-            //digitalWrite(15, HIGH); 
-        } else {
-          onFan(estado_fan);
-            //digitalWrite(15, LOW); 
-        }
-        // Attribute update
-        DynamicJsonDocument resp(256);
-        
-        resp["estado_fan"] = estado_fan;
-        char buffer2[256];
-        serializeJson(resp, buffer2);
-        resp["ventilador"] = estado_fan;
-        serializeJson(resp, buffer2);
-        mqttClient.publish("v1/devices/me/attributes", buffer2);
-        Serial.print("Publish message [attribute]: ");
-        Serial.println(buffer2);
-    
-    }
-    else if (metodo == "5") {
-         char outTopic[128];
-         String salida = "1";
-        ("v1/devices/me/rpc/response/" + _number).toCharArray(outTopic,128);
-        if (salida == "1") {
-          salida = "0";
-        }else {
-          salida = "1";
-        }
-       
-        mqttClient.publish(outTopic, salida.c_str());
-        Serial.println(outTopic);
-        
-    }
-    else if (metodo == "setRosa") {
-        miPlanta.cambiarPlanta("Rosa");
-        DynamicJsonDocument resp(256);
-        resp["currentPlant"] = "Rosa";
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.println("Plant set to Rosa");
-
-    } else if (metodo == "estadoRosa") {
-        bool isRosa = (miPlanta.getPlantaActual() == "Rosa");
-        DynamicJsonDocument resp(256);
-        resp["isRosa"] = isRosa;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.print("Current plant is Rosa: ");
-        Serial.println(isRosa ? "true" : "false");
-
-    } else if (metodo == "setCactus") {
-        miPlanta.cambiarPlanta("Cactus");
-        DynamicJsonDocument resp(256);
-        char buffer[256];
-        resp["currentPlant"] = "Cactus";
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.println("Plant set to Cactus");
-
-    } else if (metodo == "estadoCactus") {
-        bool isCactus = (miPlanta.getPlantaActual() == "Cactus");
-        DynamicJsonDocument resp(256);
-        resp["isCactus"] = isCactus;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.print("Current plant is Cactus: ");
-        Serial.println(isCactus ? "true" : "false");
-
-    } else if (metodo == "setHelecho") {
-        miPlanta.cambiarPlanta("Helecho");
-        DynamicJsonDocument resp(256);
-        resp["currentPlant"] = "Helecho";
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.println("Plant set to Helecho");
-
-    } else if (metodo == "estadoHelecho") {
-        bool isHelecho = (miPlanta.getPlantaActual() == "Helecho");
-        DynamicJsonDocument resp(256);
-        resp["isHelecho"] = isHelecho;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.print("Current plant is Helecho: ");
-        Serial.println(isHelecho ? "true" : "false");
-
-    } else if (metodo == "setOrquidea") {
-        miPlanta.cambiarPlanta("Orquídea");
-        DynamicJsonDocument resp(256);
-        resp["currentPlant"] = "Orquídea";
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.println("Plant set to Orquídea");
-
-    } else if (metodo == "estadoOrquidea") {
-        bool isOrquidea = (miPlanta.getPlantaActual() == "Orquídea");
-        DynamicJsonDocument resp(256);
-        resp["isOrquidea"] = isOrquidea;
-        char buffer[256];
-        serializeJson(resp, buffer);
-        mqttClient.publish("v1/devices/me/attributes", buffer);
-        Serial.print("Current plant is Orquídea: ");
-        Serial.println(isOrquidea ? "true" : "false");
-    } else if (metodo == "setModo") {
-        boolean modo = incoming_message["params"];
-        if (modo) {
-            Automatico = true; 
-        } else {
-          Automatico = false;
-        }
-        // Attribute update
-        DynamicJsonDocument resp(256);
-        resp["automatico"] = Automatico;
-        char buffer2[256];
-        serializeJson(resp, buffer2);;
-        mqttClient.publish("v1/devices/me/attributes", buffer2);
-        Serial.print("Publish message [attribute]: ");
-        Serial.println(buffer2);
-    }
-  }
-}
-
-void reconnect() {
-  // Loop until we're reconnected
-  while (!mqttClient.connected()) {
-    Serial.println("Attempting MQTT connection...");
-    // Attempt to connect - mqttClient.connect(DEVICE_ID, TOKEN, TOKEN)
-    if (mqttClient.connect("Placa", token, token)) {
-      Serial.println("connected");
-      // Once connected, subscribe to rpc topic
-      mqttClient.subscribe("v1/devices/me/rpc/request/+");
-    } else {
-      Serial.print("failed, rc=");
-      Serial.print(mqttClient.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
-      delay(5000);
-    }
-  }
-}
-
-void setup() {
-  pinMode(14, OUTPUT);
-  pinMode(15, OUTPUT); // Set pin 15 as output for the fan
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  Serial.begin(115200);
-  setup_wifi();
-  mqttClient.setServer(mqtt_server, 1883);
-  mqttClient.setCallback(callback);
-  sensores.begin();
-  ads.begin();
-  delay(1000);
-}
-
-unsigned long humidityOutput(int humidity) {
-    // Get the plant's humidity thresholds
-    auto thresholds = miPlanta.getPlantThresholds();
-    int minHumidity = thresholds[2];
-
-    // Calculate the humidity deficit
-    int humidityDeficit = minHumidity - humidity;
-
-    // Variables for delay time and return value
-    int delayTime = 0;
-    unsigned long returnValue = 0;
-    float volumenDeAgua = 0; 
-    // Adjust delay time based on humidity deficit
-    if (humidityDeficit > 0) {
-        if (humidityDeficit > 30) {
-            delayTime = 25;
-            returnValue = 25000;
-            onBomba(true);
-            volumenDeAgua = calcularVolumen(0.005, delayTime);
-        } else if (humidityDeficit > 20) {
-            delayTime = 15;
-            returnValue = 15000;
-            onBomba(true);
-            volumenDeAgua = calcularVolumen(0.005, delayTime);
-        } else if (humidityDeficit > 10) {
-            delayTime = 8;
-            returnValue = 8000;
-            onBomba(true);
-            volumenDeAgua = calcularVolumen(0.005, delayTime);
-        } else {
-            Serial.println("Humidity is close to the suitable range. Minor or no action needed.");
-            return 0;
-        }
-
-    }   
-    else {
-        Serial.println("Humidity is within or above the suitable range. No action needed.");
-        return 0;
-    }
-  volumenTotal = volumenTotal + volumenDeAgua;
-  return returnValue;
-}
-
-void controlFan(int measuredTemp) {
-    // Retrieve the maximum temperature threshold for the plant
-    auto thresholds = miPlanta.getPlantThresholds();
-    int maxTemperature = thresholds[1];
-    bool fan = false;
-    if (Automatico){
-      if (measuredTemp > maxTemperature || measuredTemp < 5) {
-          // If the temperature is higher than the max threshold or lower than 5 degrees, turn on the fan
-          if (!fanState) {
-              fan = true;
-              onFan(fan);
-              
-          }
-      } else {
-          // If the temperature is within the range, turn off the fan
-          if (fanState) {
-              fan = false;
-              onFan(fan);
-          }
-      }
-    }
-}
-
-int handleAndPublishTemperature(int sensorIndex, const char* telemetryTopic) {
-    sensores.requestTemperatures();
-    int temperature = sensores.getTempCByIndex(sensorIndex);
-
-    DynamicJsonDocument resp(256);
-
-    if (sensorIndex == 0) {
-      resp["Temperatura 1"] = temperature;
-      char buffer[256];
-      serializeJson(resp, buffer);
-      mqttClient.publish(telemetryTopic, buffer);
-      Serial.print("Publish Message [telemetry]: ");
-      Serial.println(buffer);
-    } else if (sensorIndex == 1) {
-      resp["Temperatura 2"] = temperature;
-      char buffer[256];
-      serializeJson(resp, buffer);
-      mqttClient.publish(telemetryTopic, buffer);
-      Serial.print("Publish Message [telemetry]: ");
-      Serial.println(buffer);
-    } else {
-        Serial.println("Invalid sensor index");
-        return -1; // Return -1 for invalid sensor index
-    }
-
-    return temperature; // Return the measured temperature
-}
-
-int handleAndPublishHumidity(int sensorIndex, const char* telemetryTopic) {
-    int humidity;
-    String humidityKey;
-
-    if (sensorIndex == 0) {
-        humidity = map(ads.readADC_SingleEnded(0), 0, 32767, 100, 0); // Sensor 1
-        //humidity = ads.readADC_SingleEnded(0);
-        //humidity = 20;
-        humidityKey = "Humedad 1";
-    } else if (sensorIndex == 1) {
-        humidity = map(ads.readADC_SingleEnded(1), 0, 32767, 100, 0); // Sensor 2
-        //humidity = 40;
-        humidityKey = "Humedad 2";
-    } else {
-        Serial.println("Invalid sensor index");
-        return -1; // Return -1 for invalid sensor index
-    }
-
-    DynamicJsonDocument resp(256);
-    char buffer[256];
-
-    resp[humidityKey] = humidity;
-    serializeJson(resp, buffer);
-    mqttClient.publish(telemetryTopic, buffer);
-    Serial.print("Publish Message [telemetry]: ");
-    Serial.println(buffer);
-
-    return humidity; // Return the measured humidity
-}
-
-const float pi = 3.14159265358979323846; // Valor de pi
-
-// Función para calcular el volumen de agua que pasa por el tubo
-float calcularVolumen(float diametro, float tiempo) {
-  // Calcular el área de la sección transversal
-  float area = (pi * diametro * diametro) / 4.0;
-
-  // Calcular el volumen de agua (volumen = área * tiempo)
-  float volumen = area * tiempo;
-
-  return volumen;
-}
-
-void tiempoEncendido (int tiempo){
-  unsigned long currentMillis = millis();  // Obtener el tiempo actual
-  bool Apagar = false;
-  // Verificar si ha pasado el intervalo de tiempo
-  if (currentMillis - previousMillis >= tiempo) {
-    // Guardar el tiempo actual
-    previousMillis = currentMillis;
-    onBomba(Apagar);
-  }
-}
-
-void loop() {
-    if (!mqttClient.connected()) {
-        reconnect();
-    }
-    mqttClient.loop();
-
-    unsigned long now = millis();
-    value = random(100);
+### Determinar el enfoque del proyecto
+A la hora de elegir un tema para desarrollar, el mantenimiento de los jardines fue una temática que llamó significativamente nuestra atención. Principalmente porque sentíamos que con varias de las herramientas de ingeniería que existen en la actualidad este problema es mucho más abordable que antes.
+
+### Descripción del problema
+Optamos por destacar las amenazas que más atentan contra la sostenibilidad de un jardín tradicional, tales como plantas deshidratadas, plantas sofocadas y plantas expuestas a las heladas. Partiendo de esos desafíos, buscamos crear una solución que posibilite informar, controlar y actuar en relación con los obstáculos que pretendemos evitar. Las funciones de nuestra solución deben incluir: hidratar una planta deshidratada, ventilar una planta sofocada y emitir una alerta si una planta se encuentra en un nivel de frío peligroso. Además, toda esta información se presentará en un panel gráfico para que el usuario pueda interactuar de manera remota con el jardín.
+
+### Solución planteada
+Para diseñar una solución, optamos por considerar que un prototipo formado por dos pequeñas áreas de cultivo podría simular el comportamiento de un jardín o huerto doméstico. Cada área de cultivo estará equipada con un sensor de temperatura y otro de humedad. Estos dispositivos estarán conectados a una placa que enviará toda la información sobre el estado de los cultivos a una plataforma en internet. Por otra parte, el prototipo contará con una bomba de agua y un ventilador. Estos dispositivos también se conectarán a la placa mencionada anteriormente y podrán activarse automáticamente según sea necesario o manualmente por el usuario a través de la plataforma en línea.
+
+En resumen el usuario tendrá a sus disposición estas funciones:
+   * Accionar la ventilación de manera remota
+   * Accionar el riego de manera remota
+   * Encendido de ventilación y riego de manera automática para cada tipo de planta
+   * Recibir alertas en caso de heladas
+   * Disponer de humedad y temperatura de los cultivos a distancia
+
+### Planificación de pruebas de concepto y prototipos
+Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en dos pruebas iniciales.
+Estas pruebas iniciales son:
+   * Prueba de sensor de humedad y temperatura con placa ESP8266
+   * Prueba de rule chains de ThingsBoard
+     
+##### Prueba de sensor de humedad y temperatura con placa ESP8266
+El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. Elegimos comenzar por este punto porque ya estábamos familiarizados con sensores similares a los que íbamos a utilizar. Gracias a estos conocimientos previos, percibimos un menor riesgo, ya que partíamos con una ventaja por lo aprendido anteriormente. Algunos de los posibles problemas son el uso diversas bibliotecas y la existencia de distintas versiones del IDE de Arduino. 
+
+##### Prueba de rule chains de ThingsBoard
+El cometido de esta prueba consistió en comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y establecer una rule chain que se alineara con la lógica de nuestra solución. Esta prueba contaba con varios riesgos, por eso decidimos destinarle dos integrantes del equipo. El principal obstáculo, era nuestra total inexperiencia con la plataforma ThingsBoard. Profundizando en este problema, no teníamos certeza de si las rule chains nos permitirían alcanzar toda la lógica y comunicación necesarias para desarrollar la solución que teníamos en mente. Además, en caso de necesitar alarmas no nos quedaba claro si era posible integrarlas a la rule chain.
+
+Una vez desarrolladas las pruebas iniciales, el plan es continuar con pruebas para integrar el sensado con la plataforma. Es decir, recibir las telemetrías de los sensores en ThingsBoard en un panel gráfico acorde. Y a su vez, probar el envío de comandos desde ThingsBoard.
+
+##### Prueba de comandos RPC envíados desde ThingsBoard
+La siguiente prueba de concepto consistió en simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia MQTTX, una herramienta destinada a clientes MQTT. La prueba ofrece la ventaja de validar la correcta transmisión del mensaje MQTT desde ThingsBoard. Si la prueba fuera enviando directamente a la placa y encontraramos un error, sería necesario diagnosticar si el problema se originó durante el envío o la recepción. Ocasionando pérdidas de tiempo para todo el equipo. Con esta prueba, esperamos comprender cómo nuestros actuadores funcionan remotamente a través de ThingsBoard.
+
+##### Prueba de integración de telemetrías de los sensores en panel de ThingsBoard
+El objetivo es incorporar las mediciones de los sensores que recibe la placa a un panel gráfico ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro dsconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidades en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiría visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
+
+##### Prueba para accionadores
+Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. Que luego será integrado al prototipo final del proyecto. Nuestro objetivo es poder activarlos de manera manual y remota. Y para eso necesitamos adecuar la tensión de control a los valores necesarios. Lo posibles problemas que pueden presentarse son: falta de corriente para la bomba de agua y manejo de los retardos para el correcto funcionamiento de la solución.
+
+##### Prototipo de Dashboard con accionado manual y automático
+
+### Experimentos
+A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el por qué.
+
+##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
+El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. En el transcurso de la prueba decidimos ahondar un poco más y sumamos como objetivo visualizar los datos envíados en la plataforma. 
+
+Los materiales utilizados fueron:
+   * DS18B20 Sensor de temperatura
+   * MK0280 Sensor de humedad
+   * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Convertidor ADS1115
+   * Protoboard
    
-    // Handle thermometer 1
-    float temp_medida0 = handleAndPublishTemperature(0, "v1/devices/me/telemetry");
-    controlFan(temp_medida0);
-    Serial.println(fanState);
+Referencias o guías de los componentes que necesitamos:
+   * <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf">Datasheet DS18B20</a>
+   * <a href="https://www.researchgate.net/profile/Mohamed-Fezari-2/publication/328265730_NodeMCU_V3_For_Fast_IoT_Application_Development/links/5bc1f82b458515a7a9e71ac1/NodeMCU-V3-For-Fast-IoT-Application-Development.pdf">Guía ESP8266</a>
+   * <a href="https://components101.com/modules/soil-moisture-sensor-module">Guía sensor de humedad</a>
+   * <a href="https://cdn-shop.adafruit.com/datasheets/ads1115.pdf">Datasheet ADS1115</a>
+   
+La prueba salió como esperabamos ya que pudimos efectivamente sensar y ver los resultados en la plataforma. Queriamos probar varios sensores en simultaneo, pero obviamos que la placa solo contaba con una entrada analógica. Por lo tanto los sensores fueron probados por separado. Gracias a esta prueba comprendimos que necesitariamos de un convertidor A/D para sensar varias temperaturas y humedades en simultáneo. Una vez incorporado el convertidor A/D con ayuda de un panel gráfico predeterminado probamos la visualización de los valores en ThingsBoard. Este ensayo también fue satisfactorio.
 
-    // Handle thermometer 2
-    float temp_medida1 = handleAndPublishTemperature(1, "v1/devices/me/telemetry");
+El código utilizado y el video de los resultados de esta prueba se pueden encontrar en los detalles de nuestra bitácora, a continuación pueden encontrar un enlace a la misma. 
+<a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/23/Prueba-sensores.html">Prueba de sensores - Bitácora</a>
 
-    // Handle humidity sensor 1
-    float humid_medida0 = handleAndPublishHumidity(0, "v1/devices/me/telemetry");
-    
-    if (Automatico){
-      if(!bombState){
-        tiempo_encendido = humidityOutput(humid_medida0);
-      }
-      if(bombState){
-        tiempoEncendido(tiempo_encendido);
-      }
-    }
-    DynamicJsonDocument volumenDoc(256);
-    volumenDoc["volumen"] = volumenTotal;
-    char volumenBuffer[256];
-    serializeJson(volumenDoc, volumenBuffer);
-    mqttClient.publish("v1/devices/me/telemetry", volumenBuffer);
-    Serial.print("Publish Message [volumen_total]: ");
-    Serial.println(volumenBuffer);
-        
-    // Handle humidity sensor 2
-    float humid_medida1 = handleAndPublishHumidity(1, "v1/devices/me/telemetry");
+##### Concepto 2: Prueba de rule chains de ThingsBoard
+El cometido de esta prueba es comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y diseñar una rule chain que se adecuará con la lógica de nuestra solución.
+Toda la prueba fue desarrollada dentro de la plataforma ThingsBoard.
 
-}
+Como guía y referencia para poder avanzar con las pruebas utilizamos:
+   * <a href="https://thingsboard.io/docs/user-guide/rule-engine-2-0/re-getting-started/">Intro de Rule Engines</a>
+   * <a href="https://thingsboard.io/docs/reference/mqtt-api/">Guía para MQTT de ThingsBoard</a>
+   * <a href="https://thingsboard.io/docs/user-guide/ui/rule-chains/">Guía para Rule Chains</a>
 
-```
-- Sacamos el código que veremos a continuación porque a si bien compila, a Github no le gusta. (Va en //*CÓDIGO QUE DA ERROR)
-  
-![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
+En esta evaluación, comenzamos desde la cadena raíz original y optamos por incorporar un salto a una cadena nueva cuando el mensaje recibido fuera una telemetría. Iniciamos con la cadena de sensado de temperatura y humedad porque era la lógica con la que estábamos más familiarizados. Realizamos todos los tests con los comandos -curl en consola y con el debug de la rule chain. Esta prueba no fue exitosa, el desarrollo de la misma se extendió más de lo esperado. Y no logramos incorporar alarmas en la rule chain. El fracaso de esta prueba se debió a varios factores:
+   * Desconocimiento de la plataforma
+   * Solo se realizaron pruebas en la plataforma
+   * No se realizó la lógica de manera modular
+   * No se realizó un esquema con los distintas interacciones entre la placa y la plataforma
+   * Concentrarse demasiado en los perfiles y dispositivos
 
-`Video de como funciona el sistema en automático y/o manual del ventilador`
+Desde el principio, habría sido ventajoso considerar todas las posibles interacciones entre la placa y la plataforma. Es decir, identificar cuándo era necesario enviar un mensaje MQTT del tipo RPC, cuándo una Telemetría y cuándo un Atributo. Definir qué enviaría la placa o la plataforma y qué tipo de mensaje se esperaría. Con toda esta información disponible, la elección de bloques para la lógica hubiera sido mucho más adecuada. A su vez, la realización de toda la lógica en la plataforma sin validación por fuera del debug y ping de dispositivos, dificultó mucho a la hora de intentar unificar la cadena con las señales reales de la solución.
+Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a la división y comprensión de las herramientas necesarias de la solución. Centrándonos en los roles de la placa y la plataforma en cada uno de los estados de la lógica del problema.
 
-<a href="https://youtu.be/wq0WzJoUVjo">Video ventilador</a>
+Las capturas de las cadenas diseñadas para la prueba de concepto son parte de nuestra bitácora, como podrán verlas en el enlace. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/18/ThingsBoard-Rule-chains.html">Prueba de Rulechains - Bitácora</a>
 
-`Bomba en modo manual`
+##### Concepto 3: Prueba de comandos RPC envíados desde ThingsBoard
+La siguiente prueba conceptual implicó simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia la placa, solo que el programa MQTTX simularía el rol de la placa. Con ayuda del widget "Knob Control" del panel gráfico de ThingsBoard pudimos definir funciones RPC para entender su funcionamiento y como interactuarían con las variables definidas en la placa. Planteamos una función para operar una variable booleana, como puede ser el estado de un LED. 
 
-<a href="https://youtube.com/shorts/Y4n8E_QKA9E?feature=share">Video bomba</a>
+La prueba fue exitosa, ya que pudimos validar que el envío de ThingsBoard era correcto, permitiendonos poner toda nuestra atención en la recepción de la placa. Los conocimientos que nos brindó esta práctica fueron, comprensión del formato de MQTT con Header fijo o variable y procedimiento de request y response de MQTT. En el enlace a la bitácora se podrá ver en la penúltima imagen, una captura de una parte de lo probado. 
+<a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/_posts/2023-11-11-Pudimos-enviarle-al-Knob-Control.markdown">Captura de las pruebas en MQTTX</a>
 
-`Probamos la bomba`
+##### Concepto 4: Prueba para accionadores
+El propósito era accionar nuestros actuadores con las señales de la placa. 
 
-![Ojoo!](/proyecto-plant-o-matic/assets/Ojoo!.jpg)
+Los componentes que necesitamos fueron:
+   * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Ventilador de 12V
+   * Fuente de 5V de 2A
+   * Transistor NPN P2N2222A
+   * Resistencia de 1K ohm. 
+   * Réle AX1RC-5V
+   * Protoboard
 
-<a href="https://youtube.com/shorts/i4osGTkvNvA?feature=share">Video todo mojado :0 </a>
+Hojas de datos e información de referencia de algunos de los componentes:
+   * <a href="https://datasheetspdf.com/pdf-file/1264803/METALTEX/AX1RC-5V/1">Datasheet Réle</a>
+   * <a href="https://pchub.com/lffan-linfu-lfs0912gh-server-square-fan-lfs0912gh-p215294">Info del ventilador</a>
+   * <a href="https://www.onsemi.com/pdf/datasheet/p2n2222a-d.pdf">Datasheet NPN</a>
 
-`Pronto`
+Al realizar la prueba, aun no contabamos con una fuente de 12V con corriente suficiente para la bomba de agua. Entonces decidimos probar con una de 5V que teníamos a disposición que para el ventilador era más que suficiente. Diseñamos el circuito de manera de amplificar nuestra corriente de salida de la placa al valor necesario por los accionadores, utilizamos el transistor para alcanzar dicha corriente y asi conectar/desconectar la bobina dentro del réle. Logramos lo que buscabamos con un código que alternaba entre encendido y apagado. El ventilador efectivamente se apagaba y prendía acorde a lo programado. Video y código de la prueba: <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/11/18/Prueba_bombas_y_ventiladores_MARTIN.html">Prueba accionadores</a>
 
-![Todo_conectado](/proyecto-plant-o-matic/assets/Todo_conectado.jpg)
+##### Prototipo 1: Dashboard con accionado manual y automático
+El objetivo de esta prueba es accionar un actuador desde el dashboard, intercalando entre modo manual y automático. Este prototipo comprende una parte importante de nuestra solución final. Que 
+
+### Demo o Exposición de la solución
+
+#### Diagrama de la solución
+#### Enlace al código final en GitHub
+#### Incluir justificación de decisiones en base al anteproyecto
+#### Reflexión del proyecto, explicar que salió mal y que podría mejorarse
