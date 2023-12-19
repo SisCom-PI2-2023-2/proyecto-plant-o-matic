@@ -3,6 +3,9 @@ layout: page
 title: Budget
 permalink: /budget/
 ---
+Plant-O-Matic se puede realizar con menos de $5000
+-
+
 Dos Bomba de Limpia Parabrisas $290 c/u
 ![Bomba](/assets/Bomba.jpg)
 
