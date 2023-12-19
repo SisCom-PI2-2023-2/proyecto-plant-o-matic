@@ -117,6 +117,7 @@ Al realizar la prueba, aun no contabamos con una fuente de 12V con corriente suf
 
 ##### Prototipo 1: Dashboard con accionado manual
 
+
 ### Demo o Exposición de la solución
 
 #### Diagrama de la solución
