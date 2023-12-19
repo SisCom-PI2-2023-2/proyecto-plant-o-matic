@@ -8,10 +8,14 @@ permalink: /resumen/
 A la hora de elegir un tema para desarrollar, el mantenimiento de los jardines fue una temática que llamó significativamente nuestra atención. Principalmente porque sentíamos que con varias de las herramientas de ingeniería que existen en la actualidad este problema es mucho más abordable que antes.
 
 ### Descripción del problema
-Optamos por destacar las amenazas que más atentan contra la sostenibilidad de un jardín tradicional, tales como plantas deshidratadas y plantas sofocadas que necesitan ser atendidas. Partiendo de esos desafíos, buscamos crear una solución que posibilite informar, controlar y actuar en relación con los obstáculos que pretendemos evitar. Las funciones de nuestra solución deben incluir: hidratar una planta deshidratada, ventilar una planta sofocada y monitoreo de valores vitales para los cultivos. Además, toda esta información se presentará en un panel gráfico para que el usuario pueda interactuar de manera remota con el jardín.
+Optamos por destacar las amenazas que más atentan contra la sostenibilidad de un jardín tradicional, tales como plantas deshidratadas y plantas sofocadas que necesitan ser atendidas. Partiendo de esos desafíos, buscamos crear una solución que posibilite informar, controlar y actuar en relación con los obstáculos que pretendemos evitar. 
+
+Las funciones de nuestra solución deben incluir: hidratar una planta deshidratada, ventilar una planta sofocada y monitoreo de valores vitales para los cultivos. Además, toda esta información se presentará en un panel gráfico para que el usuario pueda interactuar de manera remota con el jardín.
 
 ### Solución planteada
-Para diseñar una solución, optamos por considerar que un prototipo formado por una pequeña área de cultivo podría simular el comportamiento de un jardín o huerto doméstico. El área de cultivo estará equipada con dos sensores de temperatura y dos de humedad. Para sensar los parámetros a la altura de la planta y también en la tierra y raíces. Estos dispositivos estarán conectados a una placa que enviará toda la información sobre el estado de los cultivos a una plataforma en internet. Por otra parte, el prototipo contará con una bomba de agua y un ventilador. Estos dispositivos también se conectarán a la placa mencionada anteriormente y podrán activarse automáticamente según sea necesario o manualmente por el usuario a través de la plataforma en línea.
+Para diseñar una solución, optamos por considerar que un prototipo formado por una pequeña área de cultivo podría simular el comportamiento de un jardín o huerto doméstico. El área de cultivo estará equipada con dos sensores de temperatura y dos de humedad. Para sensar los parámetros a la altura de la planta y también en la tierra y raíces. Estos dispositivos estarán conectados a una placa que enviará toda la información sobre el estado de los cultivos a una plataforma en internet. 
+
+Por otra parte, el prototipo contará con una bomba de agua y un ventilador. Estos dispositivos también se conectarán a la placa mencionada anteriormente y podrán activarse automáticamente según sea necesario o manualmente por el usuario a través de la plataforma en línea.
 
 En resumen el usuario tendrá a sus disposición estas funciones:
    * Accionar la ventilación de manera remota
@@ -21,6 +25,7 @@ En resumen el usuario tendrá a sus disposición estas funciones:
 
 ### Planificación de pruebas de concepto y prototipos
 Se definieron varias pruebas conceptuales intentando preservar la modularidad entre ellas. Gracias a su modularidad, los integrantes del equipo pudieron trabajar simultáneamente en diferentes partes del proyecto, sin depender de otras tareas para avanzar. En un principio decidimos trabajar todos juntos en el diseño y elección de componentes, a partir de la llegada de materiales decidimos dividir el proyecto en dos pruebas iniciales.
+
 Estas pruebas iniciales son:
    * Prueba de sensor de humedad y temperatura con placa ESP8266
    * Prueba de rule chains de ThingsBoard
@@ -75,7 +80,9 @@ Como guía y referencia para poder avanzar con las pruebas utilizamos:
    * <a href="https://thingsboard.io/docs/reference/mqtt-api/">Guía para MQTT de ThingsBoard</a>
    * <a href="https://thingsboard.io/docs/user-guide/ui/rule-chains/">Guía para Rule Chains</a>
 
-En esta evaluación, comenzamos desde la cadena raíz original y optamos por incorporar un salto a una cadena nueva cuando el mensaje recibido fuera una telemetría. Iniciamos con la cadena de sensado de temperatura y humedad porque era la lógica con la que estábamos más familiarizados. Realizamos todos los tests con los comandos -curl en consola y con el debug de la rule chain. Esta prueba no fue exitosa, el desarrollo de la misma se extendió más de lo esperado. Y no logramos incorporar alarmas en la rule chain. El fracaso de esta prueba se debió a varios factores:
+En esta evaluación, comenzamos desde la cadena raíz original y optamos por incorporar un salto a una cadena nueva cuando el mensaje recibido fuera una telemetría. Iniciamos con la cadena de sensado de temperatura y humedad porque era la lógica con la que estábamos más familiarizados. Realizamos todos los tests con los comandos -curl en consola y con el debug de la rule chain. Esta prueba no fue exitosa, el desarrollo de la misma se extendió más de lo esperado. Y no logramos incorporar alarmas en la rule chain. 
+
+El fracaso de esta prueba se debió a varios factores:
    * Desconocimiento de la plataforma
    * Solo se realizaron pruebas en la plataforma
    * No se realizó la lógica de manera modular
@@ -83,6 +90,7 @@ En esta evaluación, comenzamos desde la cadena raíz original y optamos por inc
    * Concentrarse demasiado en los perfiles y dispositivos
 
 Desde el principio, habría sido ventajoso considerar todas las posibles interacciones entre la placa y la plataforma. Es decir, identificar cuándo era necesario enviar un mensaje MQTT del tipo RPC, cuándo una Telemetría y cuándo un Atributo. Definir qué enviaría la placa o la plataforma y qué tipo de mensaje se esperaría. Con toda esta información disponible, la elección de bloques para la lógica hubiera sido mucho más adecuada. A su vez, la realización de toda la lógica en la plataforma sin validación por fuera del debug y ping de dispositivos, dificultó mucho a la hora de intentar unificar la cadena con las señales reales de la solución.
+
 Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a la división y comprensión de las herramientas necesarias de la solución. Centrándonos en los roles de la placa y la plataforma en cada uno de los estados de la lógica del problema.
 
 Las capturas de las cadenas diseñadas para la prueba de concepto son parte de nuestra bitácora, como podrán ver en el enlace. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/18/ThingsBoard-Rule-chains.html">Prueba de Rulechains - Bitácora</a>
@@ -161,14 +169,17 @@ Un ejemplo de lo que determina el perfil, en el caso del "Helecho". En el escena
 Además, se le incorporó un registro del volumen regado en lo que va del mes. Esto podrá verse con facilidad en el panel gráfico de la solución. 
 
 ### Conclusión
-Con respecto a lo planteado en el anteproyecto, se pudo alcanzar lo propuesto para el MVP exceptuando el uso de APIs para la obtención de valores óptimos. Como alternativa diseñamos una variedad de perfiles de plantas con los valores optimos sugeridos ya cargados en la placa para poder operar los actuadores de manera acorde. 
+Con respecto a lo planteado en el anteproyecto, se pudo alcanzar lo propuesto para el MVP exceptuando el uso de APIs para la obtención de valores óptimos. Como alternativa diseñamos una variedad de perfiles de plantas con los valores optimos sugeridos ya cargados en la placa para poder operar los actuadores de manera acorde.
+
 Con respecto a la solución Estándar, entendemos que con más tiempo y mejores conocimientos previos de la plataforma podríamos haber incorporado el uso de APIs. 
-Para la versión Premium, nos vimos limitados por el costo y dificultad de medición de las magnitudes elegidas. En particular, medir la conductividad del suelo requiere de un ensayo extenso y poco integrable a nuestro sistema. Por su complejidad decidimos descartar las mediciones de conductividad y PH. 
+Para la versión Premium, nos vimos limitados por el costo y dificultad de medición de las magnitudes elegidas. En particular, medir la conductividad del suelo requiere de un ensayo extenso y poco integrable a nuestro sistema. Por su complejidad decidimos descartar las mediciones de conductividad y PH.
+
 En relación a posibles mejoras en la solución final, creemos que existe margen para ampliar nuestra maqueta. La bomba de 12V de agua cuenta con caudal suficiente para regar decenas de cultivos pequeños. 
 Por otro lado, una vez implementados los perfiles de plantas, nos dimos cuenta que pudimos haber dejado un rango personalizable para el usuario. En dicho rango él elige la temperatura a partir de la cual accionar de manera autmática. Esto es útil, porque no todas las plantas pueden quedar contempladas dentro de los perfiles.
-Otra posible mejora sería, la implementación de alertas para las cotas de los rangos sensados sin actuadores. Como lo son las plantas a temperaturas muy bajas o las plantas hiperhidratadas. Sus actuadores no son tan compatibles como el riego y la ventilación, pero una alerta podría advertir al usuario para intervenir de manera manual en su cultivo. 
+
+Otra posible mejora sería, la implementación de alertas para las cotas de los rangos sensados sin actuadores. Como lo son las plantas a temperaturas muy bajas o las plantas hiperhidratadas. Sus actuadores no son tan compatibles como el riego y la ventilación, pero una alerta podría advertir al usuario para intervenir de manera manual en su cultivo.
+
 Finalmente, como mencionamos en la sección "experimentos", si tuviéramos la oportunidad de empezar de nuevo, abordaríamos las funcionalidades de ThingsBoard de manera más modular. Esta plataforma posee numerosas capacidades que pueden motivarnos a probar varias cosas simultáneamente y complicar aún más la resolución del problema. La integración de los documentos de casos de uso y guías en nuestro proceso de diseño es algo que debimos haber hecho desde el primer día que comenzamos con el proyecto.
 
 ### Enlace al código final en GitHub
 <a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/c%C3%B3digos/c%C3%B3digo_final">Repositorio del código para el proyecto</a>
-
