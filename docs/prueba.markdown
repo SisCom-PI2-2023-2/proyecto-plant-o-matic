@@ -5,7 +5,7 @@ permalink: /resumen/
 ---
 
 ### Determinar el enfoque del proyecto
-A la hora de elegir un tema para desarrollar, el mantenimiento de los jardines fue una tematica que llamó significativamente nuestra atención. Principalmente porque sentiamos que con varias de las herramientas de ingeniería que existen en la actualidad este problema es mucho más abordable que antes.
+A la hora de elegir un tema para desarrollar, el mantenimiento de los jardines fue una temática que llamó significativamente nuestra atención. Principalmente porque sentíamos que con varias de las herramientas de ingeniería que existen en la actualidad este problema es mucho más abordable que antes.
 
 ### Descripción del problema
 Optamos por destacar las amenazas que más atentan contra la sostenibilidad de un jardín tradicional, tales como plantas deshidratadas, plantas sofocadas y plantas expuestas a las heladas. Partiendo de esos desafíos, buscamos crear una solución que posibilite informar, controlar y actuar en relación con los obstáculos que pretendemos evitar. Las funciones de nuestra solución deben incluir: hidratar una planta deshidratada, ventilar una planta sofocada y emitir una alerta si una planta se encuentra en un nivel de frío peligroso. Además, toda esta información se presentará en un panel gráfico para que el usuario pueda interactuar de manera remota con el jardín.
@@ -30,7 +30,7 @@ Estas pruebas iniciales son:
 El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. Elegimos comenzar por este punto porque ya estábamos familiarizados con sensores similares a los que íbamos a utilizar. Gracias a estos conocimientos previos, percibimos un menor riesgo, ya que partíamos con una ventaja por lo aprendido anteriormente. Algunos de los posibles problemas son el uso diversas bibliotecas y la existencia de distintas versiones del IDE de Arduino. 
 
 ##### Prueba de rule chains de ThingsBoard
-El cometido de esta prueba consistió en comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y establecer una rule chain que se alineara con la lógica de nuestra solución. Esta prueba contaba con varios riesgos, por eso decidimos destinarle dos integrantes del equipo. El principal obstáculo, era nuestra total inexperiencia con la plataforma ThingsBoard. Profundizando en este problema, no teníamos certeza de si las rule chains nos permitirían alcanzar toda la lógica y comunicación necesarias para desarrollar la solución que teníamos en mente. Además, en caso de necesitar necesitar alarmas no nos quedaba claro si era posible integrarlas a la rule chain.
+El cometido de esta prueba consistió en comprender el funcionamiento de ThingsBoard mediante el uso de rulechains y establecer una rule chain que se alineara con la lógica de nuestra solución. Esta prueba contaba con varios riesgos, por eso decidimos destinarle dos integrantes del equipo. El principal obstáculo, era nuestra total inexperiencia con la plataforma ThingsBoard. Profundizando en este problema, no teníamos certeza de si las rule chains nos permitirían alcanzar toda la lógica y comunicación necesarias para desarrollar la solución que teníamos en mente. Además, en caso de necesitar alarmas no nos quedaba claro si era posible integrarlas a la rule chain.
 
 Una vez desarrolladas las pruebas iniciales, el plan es continuar con pruebas para integrar el sensado con la plataforma. Es decir, recibir las telemetrías de los sensores en ThingsBoard en un panel gráfico acorde. Y a su vez, probar el envío de comandos desde ThingsBoard.
 
@@ -46,7 +46,7 @@ Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. 
 ##### Prototipo de dashboard con accionado manual
 
 ### Experimentos
-A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el porque.
+A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el por qué.
 
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
 El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. En el transcurso de la prueba decidimos ahondar un poco más y sumamos como objetivo visualizar los datos envíados en la plataforma. 
@@ -85,8 +85,8 @@ En esta evaluación, comenzamos desde la cadena raíz original y optamos por inc
    * No se realizó un esquema con los distintas interacciones entre la placa y la plataforma
    * Concentrarse demasiado en los perfiles y dispositivos
 
-Desde el principio, habría sido ventajoso considerar todas las posibles interacciones entre la placa y la plataforma. Es decir, identificar cuándo era necesario enviar un mensaje MQTT del tipo RPC, cuándo una Telemetría y cuándo un Atributo. Definir qué enviaría la placa o la plataforma y qué tipo de mensaje se esperaría. Con toda esta información disponible, la elección de bloques para la lógica hubiera sido mucho más adecuada. A su vez, la realización de toda la lógica en la plataforma sin validación por fuera del debug y ping de dispositivos, dificulto mucho a la hora de intentar unificar la cadena con las señales reales de la solución.
-Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a la división y comprensión de las herramientas necesarias de la solución. Centrandonos en los roles de la placa y la plataforma en cada uno de los estados de la lógica del problema.
+Desde el principio, habría sido ventajoso considerar todas las posibles interacciones entre la placa y la plataforma. Es decir, identificar cuándo era necesario enviar un mensaje MQTT del tipo RPC, cuándo una Telemetría y cuándo un Atributo. Definir qué enviaría la placa o la plataforma y qué tipo de mensaje se esperaría. Con toda esta información disponible, la elección de bloques para la lógica hubiera sido mucho más adecuada. A su vez, la realización de toda la lógica en la plataforma sin validación por fuera del debug y ping de dispositivos, dificultó mucho a la hora de intentar unificar la cadena con las señales reales de la solución.
+Finalmente, si pudieramos rehacer esta prueba, destinariamos mucho más tiempo a la división y comprensión de las herramientas necesarias de la solución. Centrándonos en los roles de la placa y la plataforma en cada uno de los estados de la lógica del problema.
 
 Las capturas de las cadenas diseñadas para la prueba de concepto son parte de nuestra bitácora, como podrán verlas en el enlace. <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/10/18/ThingsBoard-Rule-chains.html">Prueba de Rulechains - Bitácora</a>
 
@@ -122,4 +122,4 @@ Al realizar la prueba, aun no contabamos con una fuente de 12V con corriente suf
 #### Diagrama de la solución
 #### Enlace al código final en GitHub
 #### Incluir justificación de decisiones en base al anteproyecto
-#### Reflexión del proyecto, explicar que salio mal y que podria mejorarse
+#### Reflexión del proyecto, explicar que salió mal y que podría mejorarse
