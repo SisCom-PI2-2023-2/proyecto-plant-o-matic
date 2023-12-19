@@ -156,6 +156,8 @@ En la demostración implementamos los perfiles de plantas para customizar los ac
    * Helecho - Temperatura/Humedad: [18,35]/[60,80]
    * Orquídea - Temperatura/Humedad: [16,35]/[55,75]
 
+Un ejemplo de lo que determina el perfil, en el caso del "Helecho". En el escenario donde el control automático esta activado, y la temperatura del sensor en la planta del Helecho supera los 35 grados Celsius. El ventilador se activaría de manera automática. Una vez, por debajo de los 35 grados este se apagaría solo. Por otro lado, si la humedad en la tierra del cultivo del Helecho cayera por debajo del 60% el riego se dispararía automáticamente. 
+
 Además, se le incorporó un registro del volumen regado en lo que va del mes. Esto podrá verse con facilidad en el panel gráfico de la solución. 
 
 ### Conclusión
