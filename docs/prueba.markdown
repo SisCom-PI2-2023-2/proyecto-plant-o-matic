@@ -37,9 +37,6 @@ Una vez desarrolladas las pruebas iniciales, el plan es continuar con pruebas pa
 ##### Prueba de comandos RPC envíados desde ThingsBoard
 La siguiente prueba de concepto consistió en simular una conexión MQTT desde el panel gráfico de ThingsBoard hacia MQTTX, una herramienta destinada a clientes MQTT. La prueba ofrece la ventaja de validar la correcta transmisión del mensaje MQTT desde ThingsBoard. Si la prueba fuera enviando directamente a la placa y encontraramos un error, sería necesario diagnosticar si el problema se originó durante el envío o la recepción. Ocasionando pérdidas de tiempo para todo el equipo. Con esta prueba, esperamos comprender cómo nuestros actuadores funcionan remotamente a través de ThingsBoard.
 
-##### Prueba de integración de telemetrías de los sensores en panel de ThingsBoard
-El objetivo es incorporar las mediciones de los sensores que recibe la placa a un panel gráfico ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro desconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidades en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiría visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
-
 ##### Prueba para accionadores
 Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. Que luego será integrado al prototipo de accionadores de nuestro proyecto. Nuestro objetivo es poder activarlos de manera manual y remota. Y para eso necesitamos adecuar la tensión de control a los valores necesarios. Lo posibles problemas que pueden presentarse son: falta de corriente para la bomba de agua y manejo de los retardos para el correcto funcionamiento de la solución.
 
