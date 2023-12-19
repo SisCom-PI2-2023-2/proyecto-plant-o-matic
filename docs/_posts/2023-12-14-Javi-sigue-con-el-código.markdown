@@ -533,7 +533,7 @@ void loop() {
 }
 
 ```
-- Sacamos el código que veremos a continuación porque a si bien compila, a Github no le gusta. Va en //*CÓDIGO QUE DA ERROR
+- Sacamos el código que veremos a continuación porque si bien compila, a Github no le gusta. Va en //*CÓDIGO QUE DA ERROR
   
 ![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
 
