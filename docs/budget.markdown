@@ -25,7 +25,7 @@ Dos Rele 5V DC $200 c/u
 ![Rele5V](/assets/Rele5V.jpg)
 
 Resistencia 1K $200
-![Resistencia1K](/assets/Resistencia1K.jpg)
+![Resistencia1k](/assets/Resistencia1k.jpg)
 
 Transistor NPN $200
 ![TransistorNPN](/assets/TransistorNPN.jpg)
