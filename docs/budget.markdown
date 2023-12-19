@@ -20,3 +20,19 @@ Un Módulo NODEMCU V3 Esp8266 wifi MK0882 $496 c/u
 
 Dos Ventiladores 40x40x10 DC 12v $160 c/u
 ![Ventilador](/assets/Ventilador.jpg)
+
+Dos Rele 5V DC $200 c/u
+![Rele5V](/assets/Rele5V.jpg)
+
+Resistencia 1K $200
+![Resistencia1K](/assets/Resistencia1K.jpg)
+
+Transistor NPN $200
+![TransistorNPN](/assets/TransistorNPN.jpg)
+
+Kit de 65 Cables con jumpers $250
+![Cables](/assets/Cables.jpg)
+
+
+
+
