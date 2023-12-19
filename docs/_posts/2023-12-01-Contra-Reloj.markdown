@@ -20,7 +20,7 @@ Para colocar los sensores tuvimos en cuenta las indicaciones del agricultor Rica
 
 `Mensaje`
  
-![ads](/proyecto-plant-o-matic/blob/assets/ads.jpeg)
+![ads](/proyecto-plant-o-matic/assets/ads.jpeg)
 
 ![ads2](/proyecto-plant-o-matic/assets/ads2.jpg)
 
