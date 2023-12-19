@@ -16,7 +16,7 @@ categories: posts
 ![Error2](/proyecto-plant-o-matic/assets/Error2.jpg)
 
 - El problema fue que incluimos código con "error" en un Post, Github lo detectó y no dejó seguir realizando acciones.
-- Vale aclarar que el código estaba marcado como código (``` ```c++ ... ``` ```) 
+- Vale aclarar que el código estaba marcado como código.
 
 ![Error](/proyecto-plant-o-matic/assets/Error.jpg)
 
