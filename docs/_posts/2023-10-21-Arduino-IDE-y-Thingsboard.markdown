@@ -12,7 +12,7 @@ Instalamos y configuramos el programa para gestionar la placa ESP8266. Fue neces
 
 # Thingsboard
 
-Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opción Claud. Además Thingsboard Claud aumenta costo a nuestro proyecto, mientras que la opción Demo no.
+Decidimos usar Thingsboard Demos ya que no usaremos las ventajas que ofrece la opción Cloud. Además aumenta costo a nuestro proyecto, mientras que la opción Demo no.
 No perdimos mucho tiempo porque usamos el usuario de Martin y en Thingsboard podemos exportar e importar.
 
 - Usuario Thingsboard Demo : martinfajardodargenio@hotmail.com
