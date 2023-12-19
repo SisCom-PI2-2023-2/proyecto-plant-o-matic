@@ -7,7 +7,6 @@ categories: posts
 
 `Código`
 
-``` C++
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
@@ -23,7 +22,13 @@ private:
     std::string plantaActual;
     std::map<std::string, std::pair<std::pair<int, int>, std::pair<int, int>>> datosDePlantas;
 
-//*CÓDIGO QUE DA ERROR
+    void inicializarDatosDePlantas() {
+        datosDePlantas["Rosa"] = {{15, 23}, {40, 70}};
+        datosDePlantas["Cactus"] = {{20, 35}, {10, 30}};
+        datosDePlantas["Helecho"] = {{18, 35}, {60, 80}};
+        datosDePlantas["Orquídea"] = {{16, 35}, {55, 75}};
+        // Agregar más plantas según sea necesario
+    }
 
 public:
     Auxiliar(const std::string& planta) {
@@ -628,10 +633,10 @@ void loop() {
     // Handle humidity sensor 2
     float humid_medida1 = handleAndPublishHumidity(1, "v1/devices/me/telemetry");
 
-}
+    
 
+}
 ```
-- Sacamos el código que veremos a continuación porque si bien compila, a Github no le gusta. (Va en //*CÓDIGO QUE DA ERROR)
   
 ![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
 
