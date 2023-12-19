@@ -40,7 +40,8 @@ La siguiente prueba de concepto consistió en simular una conexión MQTT desde e
 ##### Prueba de integración de telemetrías de los sensores en panel de ThingsBoard
 El objetivo es incorporar las mediciones de los sensores que recibe la placa a un panel gráfico ThingsBoard vía MQTT. Los desafíos que identificamos en lo previo son: manejar los mensajes de "telemetry" en el formato correcto, nuestro dsconocimiento del funcionamiento de los paneles gráficos de ThingsBoard y posibles diferencias de unidades en escalas de medición y timeseries. Idealmente, esta prueba de concepto nos permitiría visualizar las mediciones de los sensores en un panel gráfico de la plataforma ThingsBoard.
 
-##### Prototipo 1
+##### Prueba para accionadores
+Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. Que luego será integrado al prototipo final del proyecto. Nuestro objetivo es poder activarlos de manera manual y remota. Y para eso necesitamos adecuar la tensión de control a los valores necesarios. Lo posibles problemas que pueden presentarse son: falta de corriente para la bomba de agua y manejo de los retardos para el correcto funcionamiento de la solución.
 
 ##### Prototipo final
 
@@ -49,6 +50,7 @@ A continuación, analizaremos en detalle los distintos experimentos y evaluacion
 
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
 El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. En el transcurso de la prueba decidimos ahondar un poco más y sumamos como objetivo visualizar los datos envíados en la plataforma. 
+
 Los materiales utilizados fueron:
    * DS18B20 Sensor de temperatura
    * MK0280 Sensor de humedad
@@ -94,8 +96,24 @@ La siguiente prueba conceptual implicó simular una conexión MQTT desde el pane
 La prueba fue exitosa, ya que pudimos validar que el envío de ThingsBoard era correcto, permitiendonos poner toda nuestra atención en la recepción de la placa. Los conocimientos que nos brindó esta práctica fueron, comprensión del formato de MQTT con Header fijo o variable y procedimiento de request y response de MQTT. En el enlace a la bitácora se podrá ver en la penúltima imagen, una captura de una parte de lo probado. 
 <a href="https://github.com/SisCom-PI2-2023-2/proyecto-plant-o-matic/blob/main/docs/_posts/2023-11-11-Pudimos-enviarle-al-Knob-Control.markdown">Captura de las pruebas en MQTTX</a>
 
-##### Concepto 4: Prueba de integración de telemetrías de los sensores en ThingsBoard
+##### Concepto 4: Prueba para accionadores
+El propósito era accionar nuestros actuadores con las señales de la placa. 
 
+Los componentes que necesitamos fueron:
+   * Módulo NODEMCU V3 Esp8266 wifi MK0882
+   * Ventilador de 12V
+   * Fuente de 5V de 2A
+   * Transistor NPN P2N2222A
+   * Resistencia de 1K ohm
+   * Réle AX1RC-5V
+   * Protoboard
+
+Hojas de datos e información de referencia de algunos de los componentes:
+   * <a href="https://datasheetspdf.com/pdf-file/1264803/METALTEX/AX1RC-5V/1">Datasheet Réle</a>
+   * <a href="https://pchub.com/lffan-linfu-lfs0912gh-server-square-fan-lfs0912gh-p215294">Info del ventilador</a>
+   * <a href="https://www.onsemi.com/pdf/datasheet/p2n2222a-d.pdf">Datasheet NPN</a>
+
+Al realizar la prueba, aun no contabamos con una fuente de 12V con corriente suficiente para la bomba de agua. Entonces decidimos probar con una de 5V que teníamos a disposición que para el ventilador era más que suficiente. Diseñamos el circuito de manera de amplificar nuestra corriente de salida de la placa al valor necesario por los accionadores, utilizamos el transistor para alcanzar dicha corriente y asi conectar/desconectar la bobina dentro del réle. Logramos lo que buscabamos con un código que alternaba entre encendido y apagado. El ventilador efectivamente se apagaba y prendía acorde a lo programado. Video y código de la prueba: <a href="https://siscom-pi2-2023-2.github.io/proyecto-plant-o-matic/posts/2023/11/18/Prueba_bombas_y_ventiladores_MARTIN.html">Prueba accionadores</a>
 
 ##### Prueba de boton toggle
 ##### Fotos y descripción
