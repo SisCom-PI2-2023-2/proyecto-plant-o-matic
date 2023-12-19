@@ -44,7 +44,7 @@ Con este prototipo buscamos controlar el accionado de la bomba y el ventilador. 
 Nos parece crucial, una vez funcionales los actuadores, la integración de los mismos con la plataforma. Esto nos permitirá comprender posibles estados o situaciones no previstos. Asimismo, es esencial tener en cuenta posibles retrasos o zonas grises que puedan dificultar el funcionamiento del sistema.
 
 ### Experimentos
-A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el por qué.
+A continuación, analizaremos en detalle los distintos experimentos y evaluaciones mencionados anteriormente. Dirigiendo nuestra atención a los objetivos, examinaremos lo necesario a nivel hardware y software para realizar la prueba, lo aprendido durante el desarrollo del prototipo y determinaremos si logramos alcanzar nuestras metas. En caso de no lograrlas analizaremos el porqué.
 
 ##### Concepto 1: Prueba de sensor de humedad y temperatura con placa ESP8266
 El propósito de esta prueba es establecer la comunicación entre los sensores y la ESP8266. En el transcurso de la prueba decidimos ahondar un poco más y sumamos como objetivo visualizar los datos envíados en la plataforma. 
