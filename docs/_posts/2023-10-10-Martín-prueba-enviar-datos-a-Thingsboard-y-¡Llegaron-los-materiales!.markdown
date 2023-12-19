@@ -7,11 +7,11 @@ categories: posts
 
 # Envío de datos a Thingsboard
 
-![EnvíoThings0](/proyecto-plant-o-matic/assets/EnvíoThings0.jpg)
+![EnvíoThings1](/proyecto-plant-o-matic/assets/EnvíoThings1.jpg)
 
 Define un dispositivo y le pone las credenciales
 
-![EnvíoThings1](/proyecto-plant-o-matic/assets/EnvíoThings1.jpg)
+![EnvíoThings0](/proyecto-plant-o-matic/assets/EnvíoThings0.jpg)
 
 Lo importante es el else, que se define el json con el dispositivo que hayamos creado, en este caso "temperature"
 
