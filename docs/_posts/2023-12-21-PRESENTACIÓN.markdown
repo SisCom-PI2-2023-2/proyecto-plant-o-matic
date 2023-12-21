@@ -14,6 +14,11 @@ categories: posts
 
 ![esquema](proyecto-plant-o-matic/assets/esquema.jpg)
 
+`Temperatura en tierra`
+
+El nivel de absorción de calor de la tierra baría según el color de la misma. Es bueno saber la temperatura para evaluar deshidratación, además influye en el crecimiento de las plantas.Si tenemos temperaturas muy bajas sin viento, habrá helada y puede quemar la planta. Lo evitamos con ventiladores.
+Para riego es más importante medir la humedad.
+
 
 
 
