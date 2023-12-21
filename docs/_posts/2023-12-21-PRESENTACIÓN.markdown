@@ -8,7 +8,7 @@ categories: posts
 # COMENTARIOS
 
 - Sería bueno tener un esquema circuito
-- Averiguar, ¿por que tomamos la temperatura a 30cm de la superficie?.
+- Averiguar, ¿por qué tomamos la temperatura a 30cm de la superficie?.
 
 `Esquema del circuito`
 
