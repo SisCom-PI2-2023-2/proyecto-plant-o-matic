@@ -12,7 +12,7 @@ categories: posts
 
 `Esquema del circuito`
 
-![esquema](proyecto-plant-o-matic/assets/esquema.jpg)
+![esquema](/proyecto-plant-o-matic/assets/esquema.jpg)
 
 `Temperatura en tierra`
 
