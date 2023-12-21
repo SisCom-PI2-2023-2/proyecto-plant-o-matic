@@ -4,4 +4,4 @@
 
 layout: home
 ---
-![dashboard](/assets/dashboard.png)
+![dashboard](/assets/dashboard.jpg)
