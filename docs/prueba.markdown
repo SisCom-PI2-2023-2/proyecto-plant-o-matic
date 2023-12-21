@@ -168,6 +168,9 @@ Un ejemplo de lo que determina el perfil, en el caso del "Helecho". En el escena
 
 Además, se le incorporó un registro del volumen regado en lo que va del mes. Esto podrá verse con facilidad en el panel gráfico de la solución. 
 
+Agregamos un esquemático de la solución final.
+![Esquema](/assets/ddfdfdf.PNG)
+
 ### Conclusión
 Con respecto a lo planteado en el anteproyecto, se pudo alcanzar lo propuesto para el MVP exceptuando el uso de APIs para la obtención de valores óptimos. Como alternativa diseñamos una variedad de perfiles de plantas con los valores optimos sugeridos ya cargados en la placa para poder operar los actuadores de manera acorde.
 
