@@ -7,15 +7,13 @@ categories: posts
 
 # COMENTARIOS
 
-- Seria bueno tener un esquema circuito
-- Averiguar por que tomamos la temperatura a 20 cm de la tierra.
+- Sería bueno tener un esquema circuito
+- A modo informativo, averiguar ¿por que tomamos la temperatura a 20 cm de la tierra?.
 
-Esquema del circuito
+`Esquema del circuito`
+
+![esquema](proyecto-plant-o-matic/assets/esquema.jpg)
 
 
-
-# OPINION DEL EQUIPO
-
-Pensamos que la presentación estuvo bien.
 
 
