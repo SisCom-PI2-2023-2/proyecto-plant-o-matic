@@ -635,6 +635,9 @@ void loop() {
   
 ![Da_error](/proyecto-plant-o-matic/assets/Da_error.jpg)
 
+Esquemático: 
+![Esquema](/proyecto-plant-o-matic/assets/esquema.jpg)
+
 `Video de como funciona el sistema en automático y/o manual del ventilador`
 
 <a href="https://youtu.be/wq0WzJoUVjo">Video ventilador</a>
